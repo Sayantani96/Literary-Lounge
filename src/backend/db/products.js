@@ -11,6 +11,7 @@ export const products = [
     title: "You Can WIN",
     author: "Shiv Khera",
     price: "5000",
+    rating:"4.4",
     categoryName: "non-fiction",
   },
   {
@@ -18,6 +19,7 @@ export const products = [
     title: "You are Winner",
     author: "Junaid Qureshi",
     price: "3000",
+    rating:"5.0",
     categoryName: "horror",
   },
   {
@@ -25,6 +27,7 @@ export const products = [
     title: "Think and Grow Rich",
     author: "Shiv Khera",
     price: "1000",
+    rating:"3.6",
     categoryName: "fiction",
   },
 ];

@@ -1,0 +1,17 @@
+.hero-section{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 15em;
+    padding: 0 30em;
+    font-style:Helvetica;
+}
+
+.hero-image{
+    height: 500px;
+    width: 500px;
+}
+
+.featured-section{
+    text-align: left;
+    padding: 65px;
+}

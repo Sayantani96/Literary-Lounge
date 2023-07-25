@@ -1,41 +1,56 @@
+import { useEffect } from "react";
+import{BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import "./App.css";
-import logo from "./logo.png";
+import { ProductContextProvider } from "./Frontend/utilities/ProductContext";
+import { CartContextProvider } from './Frontend/utilities/CartContext'
+import { WishlistContextProvider } from './Frontend/utilities/WishListContext'
+import ProductListing from "./Frontend/Pages/Products";
+import Cart from '../src/Frontend/Pages/Cart'
+import Home from '../src/Frontend/Pages/Home'
+import Wishlist from '../src/Frontend/Pages/Wishlist'
+import Auth from "./Frontend/Pages/Auth";
+import Login from "./Frontend/Pages/Login";
+import AbouProduct from "./Frontend/Pages/AbouProduct";
+import FeaturedCategory from "./Frontend/Pages/FeaturedCategory";
+import { CategoryContextProvider } from "./Frontend/utilities/CategoryContext";
+import { FilterContextProvider } from "./Frontend/utilities/FilterContext";
 
 function App() {
+  // useEffect(()=>{
+  //   const apiRes=async()=>{
+  //     const response=await fetch("/api/products")
+  //                           .then(res=>res.json());
+  //     console.log(response);
+  //   }
+  //   apiRes();
+    
+  // },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
+      <ProductContextProvider>
+      <CartContextProvider>
+      <WishlistContextProvider>
+      <FilterContextProvider>
+      <CategoryContextProvider>
+      <Router>
+      <Routes>
+       <Route path="/" element={<Home/>}/>
+        <Route path="/products" element={<ProductListing/>}/>
+        <Route path="/auth" element={<Auth/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/products/:id" element={<AbouProduct/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/wishlist" element={<Wishlist/>}/>
+        <Route path="/categories/:id" element={<FeaturedCategory/>}/>
+        {/* <Route path="/*" element={<ErrorPage/>}/> */}
+        
+      </Routes>
+    </Router>
+    </CategoryContextProvider>
+    </FilterContextProvider>
+    </WishlistContextProvider>
+    </CartContextProvider>
+    </ProductContextProvider>
     </div>
   );
 }

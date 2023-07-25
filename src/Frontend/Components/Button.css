@@ -1,0 +1,12 @@
+.primary-btn{
+    background-color: #00AA55;
+    border: none;
+    padding: 20px;
+    border-radius: 12px;
+    color: #F5F5F5;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 21px;
+    min-width: 26%;
+    margin-top: 43px;
+    cursor:pointer;
+}

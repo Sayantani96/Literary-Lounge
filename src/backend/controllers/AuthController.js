@@ -43,6 +43,7 @@ export const signupHandler = function (schema, request) {
     const encodedToken = sign({ _id, email }, process.env.REACT_APP_JWT_SECRET);
     return new Response(201, {}, { createdUser, encodedToken });
   } catch (error) {
+    console.log("Entered Here",error);
     return new Response(
       500,
       {},

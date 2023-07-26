@@ -32,6 +32,7 @@ const Wishlist = () => {
     <div>
       <Header/>
       <div className='wishlist-cards'>
+        <h3>Wishlist Items</h3>
       {
         wishlist.length>0?
         wishlist.map(data=><div key={data.id}>

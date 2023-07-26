@@ -49,6 +49,7 @@ const Cart = () => {
     <>
     <Header/>
     <div className="cart-container">
+      <h3>Cart Items</h3>
       {
         cartData.cart.length>0?
         cartData.cart.map(data=><div key={data.id}>

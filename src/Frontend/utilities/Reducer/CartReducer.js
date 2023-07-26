@@ -6,6 +6,7 @@ const cartReducer=(state,action)=>{
                 cartData: action.payload
             }
         case 'ADD_TO_CART':
+            console.log(state);
             const isProductPresent=state.cartData.cart.find(data=>data.id===action.payload.id)
             if(!isProductPresent){
                 return {

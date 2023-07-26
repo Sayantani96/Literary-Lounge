@@ -38,18 +38,21 @@ const AbouProduct = () => {
       {
         productById?
         <div>
-        <h5>{productById.name}</h5>
-        <p>{productById.categoryName}</p>
-        <p>Price: {productById.price}</p>
-        <Button onClickOperation={addTheData}>Add to Cart</Button>
-        <Button onClickOperation={setDataInWishlist}>Add to Wishlist</Button>
-        <Link to='/products'>Return To Products</Link>
+        <ProductCard 
+           key={productById._id}
+           title={productById.title}
+           author={productById.author}
+           category={productById.categoryName}
+           price={productById.price}
+           prod={productById}
+           id={productById._id}
+           />
     </div>: <div>
         Not found
     </div>
       }
       <Link to="/cart">Check your cart Items</Link>
-      <Link to="/wishlist">Check your cart Items</Link>
+      <Link to="/wishlist">Check your Wishlist Items</Link>
     
     </div>
   )

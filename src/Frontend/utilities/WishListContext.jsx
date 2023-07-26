@@ -31,6 +31,11 @@ export const WishlistContextProvider=({children})=>{
         body: JSON.stringify(newData),
       }).then(response=>response.json())
       .catch(error=>console.log(error))
+
+      if(response){
+        setAlertForWishlist(true);
+        setTimeout(() => setAlertForWishlist(false), 2000);
+      }
       
     }
     const fetchWishlistData= async ()=>{
@@ -49,7 +54,21 @@ export const WishlistContextProvider=({children})=>{
       
     }
 
-    const value={wishListState,addToWishlist,fetchWishlistData};
+    const removeWishlistItem=async (value)=>{
+      const response= await fetch(`/api/user/wishlist/${value._id}`,{
+        method:'DELETE',
+        headers:{
+          'Content-Type': 'application/json',
+          'authorization': localStorage.getItem("token"),
+        },
+      }).then(response=>{
+        return response.json()
+      })
+      .catch(error=>console.log(error))
+     dispatch({type:'REMOVE_ITEM',payload:value}) 
+    }
+
+    const value={wishListState,addToWishlist,fetchWishlistData,removeWishlistItem,showAlertForWishlist};
 
     return (
         <WishlistContext.Provider value={value}>

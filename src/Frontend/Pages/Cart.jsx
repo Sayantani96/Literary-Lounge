@@ -1,16 +1,26 @@
 import React, { useContext,useState,useEffect } from 'react'
 import { CartContext } from '../utilities/CartContext'
 import Button from '../Components/Button';
+import "./Cart.css"
+import { WishlistContext } from '../utilities/WishListContext';
+import { useNavigate } from 'react-router-dom';
+import Header from '../Components/Header/Header';
 // import Checkout from './Checkout';
 
 
 const Cart = () => {
+  const navigate=useNavigate();
   const {
     state:{cartData},
     removeItem,
     increment,
     decrement,
     addToCart}=useContext(CartContext);
+
+    const {
+      fetchWishlistData,
+      addToWishlist
+    }=useContext(WishlistContext);
 
     console.log(cartData.cart);
 
@@ -28,8 +38,17 @@ const Cart = () => {
   const openCheckOutModel=()=>{
     setShowCheckout(true);
   }
+  const moveToWishlist=async (value)=>{
+    removeItem(value);
+    await fetchWishlistData();
+        addToWishlist(value)
+      navigate('/wishlist');
+      
+  }
   return (
-    <div>
+    <>
+    <Header/>
+    <div className="cart-container">
       {
         cartData.cart.length>0?
         cartData.cart.map(data=><div key={data.id}>
@@ -40,6 +59,7 @@ const Cart = () => {
         <Button value={data} onClickOperation={increaseQty}>+</Button>
         <Button value={data} onClickOperation={decreaseQty}>-</Button>
         <Button value={data} onClickOperation={removeProduct}>Remove</Button>
+        <Button value={data} onClickOperation={moveToWishlist}>Move to Wishlist</Button>
     </div>): <div>
         No items in cart
     </div>
@@ -52,6 +72,7 @@ const Cart = () => {
         showCheckout && <Checkout totalPrice={totalPrice}/>
       } */}
     </div>
+    </>
   )
 }
 

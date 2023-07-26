@@ -17,7 +17,18 @@ const WishListReducer=(wishListState,action)=>{
             }
             return "Product Already Present"
 
+        case 'REMOVE_ITEM':
+            return {
+                ...wishListState,
+                    wishListData:  {
+                        wishlist: wishListState.wishListData.wishlist.filter(data=>data!==action.payload)
+                }
+            }
+
+
     }
+    
+
 }
 
 export default WishListReducer

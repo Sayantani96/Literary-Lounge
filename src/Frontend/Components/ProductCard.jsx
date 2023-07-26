@@ -8,7 +8,7 @@ import AlertBox from '../Components/AlertBox/AlertBox'
 const ProductCard = ({title,author,category,price,prod,id}) => {
 
     const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart}=useContext(CartContext);
-    const {addToWishlist,fetchWishlistData}=useContext(WishlistContext);
+    const {addToWishlist,fetchWishlistData,showAlertForWishlist}=useContext(WishlistContext);
     const [addToCartClicked, setAddToCartClicked] = useState(false);
     const [addToWishlistClicked, setAddToWishlistClicked] = useState(false);
     const navigate=useNavigate();
@@ -52,6 +52,9 @@ const ProductCard = ({title,author,category,price,prod,id}) => {
                 <Button value={prod} onClickOperation={goToWishlist}>Go To Wishlist</Button>:
                 <Button value={prod} onClickOperation={addProductToWishlist}>Add to Wishlist</Button>
 
+            }
+            {
+                showAlertForWishlist && <AlertBox>Added to Wishlist!</AlertBox>
             }
            <Link to={'/products/'+id}>Visit Item</Link>
            

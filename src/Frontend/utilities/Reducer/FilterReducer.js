@@ -1,7 +1,7 @@
 const filterReducer=(state,action)=>{
     switch(action.type){
         case 'SORT_BY_PRICE':
-            const arrayToSort=[...action.payload.filteredData];
+            let arrayToSort=[...action.payload.filteredData];
             console.log(arrayToSort);
             if(action.payload.order==='htl'){
                 arrayToSort.sort((a, b) => b.price - a.price)
@@ -16,18 +16,16 @@ const filterReducer=(state,action)=>{
                 order:action.payload.order
             }
     case 'SORT_BY_RATING':
-
-const filteredByRatingSlider=action.payload.filteredData.filter(data=>
+let filteredByRatingSlider=action.payload.filteredData.filter(data=>
     data.rating>=action.payload.rating
 )
-console.log(filteredByRatingSlider);
 return{
     ...state,
     filteredData:[...filteredByRatingSlider],
     rating:action.payload.rating
 }
    case 'SORT_BY_CATEGORY':
-    const filteredByCategory=action.payload.filteredData.filter(data=>
+    let filteredByCategory=action.payload.filteredData.filter(data=>
         data.categoryName===action.payload.categoryName
     )
     return{

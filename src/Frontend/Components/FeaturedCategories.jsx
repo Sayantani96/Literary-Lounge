@@ -1,10 +1,19 @@
 import React, {useState,useEffect, useContext} from 'react'
 import CategoryCard from './CategoryCard'
 import './Featured.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CategoryContext } from '../utilities/CategoryContext';
+import Button from './Button';
+import { FilterContext } from '../utilities/FilterContext';
 const FeaturedCategories = () => {
     const {category}=useContext(CategoryContext);
+    const {sortProductsByCategories}=useContext(FilterContext)
+    const navigate=useNavigate();
+
+    const handleCategoryVisit=(categoryName)=>{
+      sortProductsByCategories(categoryName);
+      navigate('/products');
+    }
    
   return (
     <div>
@@ -18,7 +27,8 @@ const FeaturedCategories = () => {
                             category.categoryName
                         }
                     <div>
-                    <Link to={'/categories/'+category._id}>Visit Category</Link>
+                    {/* <Link to={'/categories/'+category._id}>Visit Category</Link> */}
+                    <Button onClickOperation={()=>handleCategoryVisit(category.categoryName)}>Visit Category</Button>
                     </div>
                    
                     </CategoryCard>)

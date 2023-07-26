@@ -24,7 +24,6 @@ export const FilterContextProvider=({children})=>{
     const [state,dispatch]=useReducer(filterReducer,initialState);
     const {productData}=useContext(ProductContext);
 
-    console.log(state.filteredData);
 
     const sortProductsByPrice=(order)=>{
         dispatch({type:'SORT_BY_PRICE',payload:{
@@ -37,7 +36,7 @@ export const FilterContextProvider=({children})=>{
     const sortProductsByCategories=(categoryName)=>{
         dispatch({type:'SORT_BY_CATEGORY',payload:{
             ...state,
-            filteredData:state.filteredData.length>0?state.filteredData:productData.products,
+            filteredData:productData.products,
             categoryName:categoryName
         }})
     }
@@ -52,7 +51,7 @@ export const FilterContextProvider=({children})=>{
     const slideFilterByRating=(ratingValue)=>{
         dispatch({type:'SORT_BY_RATING',payload:{
             ...state,
-            filteredData:state.filteredData.length>0?state.filteredData:productData.products,
+            filteredData:productData.products,
             rating:ratingValue
         }})
     }

@@ -2,16 +2,23 @@ import React from 'react'
 import { useContext,useState } from 'react';
 import { CategoryContext } from '../utilities/CategoryContext';
 import { FilterContext } from '../utilities/FilterContext';
+import Button from './Button';
 
 const FilterLayout = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [priceRange, setPriceRange] = useState('');
     const [rating, setRating] = useState(1);
     const {category}=useContext(CategoryContext);
-    const {sortProductsByPrice,slideFilterByRating,sortProductsByCategories}=useContext(FilterContext);
+    const {
+      sortProductsByPrice,
+      slideFilterByRating,
+      sortProductsByCategories,
+      clearTheFilters}=useContext(FilterContext);
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
         const categoryName=event.target.value;
+        setPriceRange('');
+        setRating(1);
         sortProductsByCategories(categoryName);
       };
       const handlePriceRangeChange = (event) => {
@@ -26,8 +33,16 @@ const FilterLayout = () => {
       const handleRatingChange = (event) => {
         setRating(Number(event.target.value));
         const ratingValue=event.target.value;
+        setPriceRange('');
+        setSelectedCategory('all');
         slideFilterByRating(ratingValue);
       };
+      const handleClearFilter=()=>{
+        clearTheFilters();
+        setPriceRange('');
+        setRating(1);
+        setSelectedCategory('all');
+      }
   return (
     <div>
         <h3>Categories</h3>
@@ -54,6 +69,7 @@ const FilterLayout = () => {
           onChange={handleRatingChange}
         />
         <p>Selected Rating: {rating}</p>
+        <Button onClickOperation={handleClearFilter}>Clear All</Button>
     </div>
   )
 }

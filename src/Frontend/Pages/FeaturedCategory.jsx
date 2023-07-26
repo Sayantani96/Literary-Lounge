@@ -1,24 +1,35 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../Components/ProductCard';
 import { CategoryContext } from '../utilities/CategoryContext';
+import FilterLayout from '../Components/FilterLayout';
+import { FilterContext } from '../utilities/FilterContext';
+import './Products.css'
 const FeaturedCategory = () => {
     const {id}=useParams();
     const {featuredCategory,getProductsByCategory}=useContext(CategoryContext);
+    const {state:{filteredData}}=useContext(FilterContext);
     useEffect(()=>{
         const getCategoryProducts=async ()=>{
             await getProductsByCategory(id);
-            console.log(featuredCategory);
         }
        getCategoryProducts();
         
     },[])
+    const [dataToBeShown,setDataToBeShown]=useState([]);
+    useEffect(()=>{
+      console.log("Entered Here")
+      console.log(filteredData);
+        setDataToBeShown(filteredData.length>0?filteredData:featuredCategory);
+    },[featuredCategory,filteredData]);
 
   return (
-    <div>
+    <div className='filter-section'>
+      <FilterLayout/>
+      <div className="product-section">
         {
-        featuredCategory?
-        featuredCategory.map(prod=>
+        dataToBeShown?
+        dataToBeShown.map(prod=>
             <ProductCard 
            key={prod._id}
            title={prod.title}
@@ -34,7 +45,7 @@ const FeaturedCategory = () => {
         Category Not Found
         </div>
         }
-
+</div>
     </div>
   )
 }

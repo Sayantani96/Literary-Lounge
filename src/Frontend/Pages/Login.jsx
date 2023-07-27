@@ -17,35 +17,9 @@ const Login = () => {
     setloginFormData({ ...loginFormData, [e.target.name]: e.target.value });
   };
   const {logIn,isLoggedIn}=useContext(AuthContext);
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-     // Make POST request to server
-    //  const response=await fetch('/api/auth/login', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(loginFormData)
-    //   })
-    //     .then(response =>response.json())
-        
-    //     .catch(error => {
-    //       console.error('Error submitting form:', error);
-    //     });
-    //     if(response){
-    //       if(response.errors){
-    //         alert(response.errors[0])
-    //       }
-    //       else {
-    //         localStorage.setItem('userToken',response.encodedToken);
-    //         localStorage.setItem('userDetails',JSON.stringify(response.foundUser));
-    //         navigate('/products');
-    //       }
-         
-    //     }else{
-    //         alert("Response Not Found");
-    //     }
-    await logIn(loginFormData);
+    logIn(loginFormData);
     if(isLoggedIn) navigate('/products')
   };
 

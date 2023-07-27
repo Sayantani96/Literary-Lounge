@@ -51,6 +51,7 @@ const Cart = () => {
     <div className="cart-container">
       <h3>Cart Items</h3>
       {
+        cartData.cart?
         cartData.cart.length>0?
         cartData.cart.map(data=><div key={data.id}>
         <h5>{data.name}</h5>
@@ -63,6 +64,9 @@ const Cart = () => {
         <Button value={data} onClickOperation={moveToWishlist}>Move to Wishlist</Button>
     </div>): <div>
         No items in cart
+    </div>:
+    <div>
+      Cart is Empty
     </div>
       }
       {/* {

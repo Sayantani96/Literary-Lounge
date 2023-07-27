@@ -15,6 +15,7 @@ import FeaturedCategory from "./Frontend/Pages/FeaturedCategory";
 import { CategoryContextProvider } from "./Frontend/utilities/CategoryContext";
 import { FilterContextProvider } from "./Frontend/utilities/FilterContext";
 import { AuthContextProvider } from "./Frontend/utilities/AuthContext";
+import ProtectedRoute from "./Frontend/utilities/HOC/ProtectedRoute";
 
 
 function App() {
@@ -42,8 +43,17 @@ function App() {
         <Route path="/auth" element={<Auth/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/products/:id" element={<AbouProduct/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/wishlist" element={<Wishlist/>}/>
+        <Route path="/cart" element={
+          <ProtectedRoute>
+            <Cart/>
+        </ProtectedRoute>
+      }
+        />
+        <Route path="/wishlist" element={
+      <ProtectedRoute>
+        <Wishlist/>
+        </ProtectedRoute>
+        }/>
         <Route path="/categories/:id" element={<FeaturedCategory/>}/>
         {/* <Route path="/*" element={<ErrorPage/>}/> */}
         

@@ -34,6 +34,7 @@ const Wishlist = () => {
       <div className='wishlist-cards'>
         <h3>Wishlist Items</h3>
       {
+        wishlist?
         wishlist.length>0?
         wishlist.map(data=><div key={data.id}>
         <h5>{data.name}</h5>
@@ -43,6 +44,9 @@ const Wishlist = () => {
         <Button value={data} onClickOperation={addToCartFromWishlist}>Add To Cart</Button>
     </div>): <div>
         No items in Wishlist
+    </div>:
+    <div>
+      Wishlist is empty
     </div>
       }
       </div>

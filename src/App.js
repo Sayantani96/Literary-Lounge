@@ -15,6 +15,7 @@ import FeaturedCategory from "./Frontend/Pages/FeaturedCategory";
 import { CategoryContextProvider } from "./Frontend/utilities/CategoryContext";
 import { FilterContextProvider } from "./Frontend/utilities/FilterContext";
 
+
 function App() {
   // useEffect(()=>{
   //   const apiRes=async()=>{

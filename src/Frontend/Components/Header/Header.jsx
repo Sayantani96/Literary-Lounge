@@ -1,15 +1,23 @@
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { HiShoppingCart } from 'react-icons/hi';
 import {CgProfile} from 'react-icons/cg';
 import Hamburger from './Hamburger';
 import Logo from '../Logo';
+import { AuthContext } from '../../utilities/AuthContext';
 
 const Header = () => {
     const [hamburgerOpen,setHamburgerOpen]=useState(false);
 
+    const {signOut,isLoggedIn}=useContext(AuthContext);
+
+    const authHandler=()=>{
+        signOut();
+    }
+
     console.log(hamburgerOpen);
+
   return (
     <div className="header">
           <div className="logo-container">
@@ -35,6 +43,11 @@ const Header = () => {
                   <CgProfile size={45} color="#003366"/>
                 </NavLink>
               </li>
+              {
+                isLoggedIn && <NavLink to="/" className="nav-item" onClick={authHandler}>
+                    Logout
+                </NavLink>
+              }
           </ul>
       </div>
       <div

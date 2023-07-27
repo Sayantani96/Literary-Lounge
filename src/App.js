@@ -14,6 +14,7 @@ import AbouProduct from "./Frontend/Pages/AbouProduct";
 import FeaturedCategory from "./Frontend/Pages/FeaturedCategory";
 import { CategoryContextProvider } from "./Frontend/utilities/CategoryContext";
 import { FilterContextProvider } from "./Frontend/utilities/FilterContext";
+import { AuthContextProvider } from "./Frontend/utilities/AuthContext";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <ProductContextProvider>
+      <AuthContextProvider>
       <CartContextProvider>
       <WishlistContextProvider>
       <FilterContextProvider>
@@ -51,6 +53,7 @@ function App() {
     </FilterContextProvider>
     </WishlistContextProvider>
     </CartContextProvider>
+    </AuthContextProvider>
     </ProductContextProvider>
     </div>
   );

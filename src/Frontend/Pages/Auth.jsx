@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import FormBackground from '../Components/FormBackground';
 import FormInput from '../Components/FormInput/FormInput';
 import Button from '../Components/Button';
 import FormModal from '../Components/FormModal';
+import { AuthContext } from '../utilities/AuthContext';
 const Auth = () => {
+
+  const {signUp}=useContext(AuthContext);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     firstName: '',
     lastName: '',
   });
+
+  const navigate=useNavigate();
 
   const handleChange = (e) => {
     console.log(e);
@@ -20,25 +25,27 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
      // Make POST request to server
-     const response=await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-formType': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-        .then(response =>response.json())
+      await signUp(formData);
+    //  const response=await fetch('/api/auth/signup', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-formType': 'application/json'
+    //     },
+    //     body: JSON.stringify(formData)
+    //   })
+    //     .then(response =>response.json())
         
-        .catch(error => {
-          // Handle any error that occurred during the request
-          console.error('Error submitting form:', error);
-        });
-        if(response){
-          console.log(response);
-            localStorage.setItem("token",response.encodedToken);
-        }else{
-            alert("Response Not Found");
-        }
+    //     .catch(error => {
+    //       // Handle any error that occurred during the request
+    //       console.error('Error submitting form:', error);
+    //     });
+    //     if(response){
+    //       console.log(response);
+    //         localStorage.setItem("token",response.encodedToken);
+    //     }else{
+    //         alert("Response Not Found");
+    //     }
+        navigate('/login');
   };
 
   return (

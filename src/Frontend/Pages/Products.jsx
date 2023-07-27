@@ -9,6 +9,8 @@ import Footer from '../Components/Footer';
 import FilterLayout from '../Components/FilterLayout';
 // import PriceFilter from '../Components/ProductFilters/PriceFilter';
 import { FilterContext } from '../utilities/FilterContext';
+import { AuthContext } from '../utilities/AuthContext';
+import Header from '../Components/Header/Header';
 // import RatingsFilter from '../Components/ProductFilters/RatingsFilter';
 // import CategoriesFilter from '../Components/ProductFilters/CategoriesFilter';
 // import Loader from '../Components/Loader';
@@ -21,6 +23,7 @@ import { FilterContext } from '../utilities/FilterContext';
 const ProductListing = () => {
     const {productData,isLoading}=useContext(ProductContext);
     const {state:{filteredData}}=useContext(FilterContext);
+    const {isLoggedIn}=useContext(AuthContext);
     
     // const {
     //     sortProductsByPrice,
@@ -35,7 +38,7 @@ const ProductListing = () => {
         setDataToBeShown(filteredData.length>0?filteredData:productData.products);
     },[productData.products,filteredData]);
 
-    console.log(dataToBeShown);
+    console.log(JSON.parse(localStorage.getItem("userDetails")).firstName)
 
    
     // const getTheorderforPrice=(order)=>{
@@ -71,6 +74,8 @@ const ProductListing = () => {
 
   return (
     <>
+    <Header/>
+    <h3>Wecome {JSON.parse(localStorage.getItem("userDetails")).firstName}</h3>
     <div className="filter-section">
       <FilterLayout/>
     </div>

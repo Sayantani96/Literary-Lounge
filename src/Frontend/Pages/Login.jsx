@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../Components/FormInput/FormInput';
 import './Login.css'
 import Button from '../Components/Button';
 import FormBackground from '../Components/FormBackground';
 import FormModal from '../Components/FormModal';
+import { AuthContext } from '../utilities/AuthContext';
 // import { Eye, EyeOff } from "react-icons/fa";
 const Login = () => {
   const [loginFormData, setloginFormData] = useState({
@@ -15,36 +16,37 @@ const Login = () => {
   const handleChange = (e) => {
     setloginFormData({ ...loginFormData, [e.target.name]: e.target.value });
   };
-
+  const {logIn,isLoggedIn}=useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
      // Make POST request to server
-     const response=await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginFormData)
-      })
-        .then(response =>response.json())
+    //  const response=await fetch('/api/auth/login', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(loginFormData)
+    //   })
+    //     .then(response =>response.json())
         
-        .catch(error => {
-          // Handle any error that occurred during the request
-          console.error('Error submitting form:', error);
-        });
-        if(response){
-          if(response.errors){
-            alert(response.errors[0])
-          }
-          else {
-            localStorage.setItem('userToken',response.encodedToken);
-            localStorage.setItem('userDetails',JSON.stringify(response.foundUser));
-            navigate('/products');
-          }
+    //     .catch(error => {
+    //       console.error('Error submitting form:', error);
+    //     });
+    //     if(response){
+    //       if(response.errors){
+    //         alert(response.errors[0])
+    //       }
+    //       else {
+    //         localStorage.setItem('userToken',response.encodedToken);
+    //         localStorage.setItem('userDetails',JSON.stringify(response.foundUser));
+    //         navigate('/products');
+    //       }
          
-        }else{
-            alert("Response Not Found");
-        }
+    //     }else{
+    //         alert("Response Not Found");
+    //     }
+    await logIn(loginFormData);
+    if(isLoggedIn) navigate('/products')
   };
 
   return (

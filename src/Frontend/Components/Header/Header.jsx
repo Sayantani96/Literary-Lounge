@@ -1,28 +1,47 @@
 import {useContext, useState} from 'react'
 import './Header.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { HiShoppingCart } from 'react-icons/hi';
 import {CgProfile} from 'react-icons/cg';
 import Hamburger from './Hamburger';
 import Logo from '../Logo';
 import { AuthContext } from '../../utilities/AuthContext';
+import FormInput from '../FormInput/FormInput'
+import { FilterContext } from '../../utilities/FilterContext';
 
 const Header = () => {
     const [hamburgerOpen,setHamburgerOpen]=useState(false);
 
     const {signOut,isLoggedIn}=useContext(AuthContext);
 
+    const {filterProductsBySearch}=useContext(FilterContext);
+
     const authHandler=()=>{
         signOut();
     }
+    const navigate=useNavigate();
 
-    console.log(hamburgerOpen);
+    const handleSearchText=e=>{
+        const delaySearch=setTimeout(()=>{
+            filterProductsBySearch(
+                e.target.value
+                )
+        },1500);
+
+        return ()=> clearTimeout(delaySearch)
+    }
 
   return (
     <div className="header">
           <div className="logo-container">
               <Logo/>
           </div>
+        <div className="search-container">
+          <FormInput
+      formPlaceholder="Search Products"
+      formChange={handleSearchText}
+      />
+      </div>
           <div className={hamburgerOpen? "menu-container expanded": "menu-container"}>
           <ul>
               <li>

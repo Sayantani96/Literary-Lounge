@@ -1,14 +1,24 @@
 .product-section{
-    display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
 }
 .product-card{
-    display: flex;
+  display: flex;
   flex-direction: column;
   background-color: #f0f0f0;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin:50px;
+  min-width: 25em;
+}
+
+.main-section{
+  display:flex;
+}
+
+.product-body{
+  margin-top: 12em;
+  padding: 0 35px;
 }

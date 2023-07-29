@@ -23,7 +23,7 @@ export const FilterContextProvider=({children})=>{
 
     const [state,dispatch]=useReducer(filterReducer,initialState);
     const {productData}=useContext(ProductContext);
-
+    
 
     const sortProductsByPrice=(order)=>{
         dispatch({type:'SORT_BY_PRICE',payload:{
@@ -41,10 +41,10 @@ export const FilterContextProvider=({children})=>{
         }})
     }
 
-    const filterProductsBySearch=(products,searchText)=>{
+    const filterProductsBySearch=(searchText)=>{
         dispatch({type:'FILTER_BY_SEARCH',payload:{
             ...state,
-            filteredData:products,
+            filteredData:productData.products,
             searchText:searchText
         }})
     }

@@ -3,7 +3,7 @@ import { useContext,useState } from 'react';
 import { CategoryContext } from '../utilities/CategoryContext';
 import { FilterContext } from '../utilities/FilterContext';
 import Button from './Button';
-
+import './FilterLayout.css'
 const FilterLayout = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [priceRange, setPriceRange] = useState('');
@@ -44,7 +44,7 @@ const FilterLayout = () => {
         setSelectedCategory('all');
       }
   return (
-    <div>
+    <div className="filter-section">
         <h3>Categories</h3>
         <select value={selectedCategory} onChange={handleCategoryChange}>
         <option value="">Select</option>

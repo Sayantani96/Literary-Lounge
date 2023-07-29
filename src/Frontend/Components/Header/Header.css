@@ -89,4 +89,8 @@
 .corner-menu{
     margin-right:38px;
 }
+.search-container{
+    display:flex;
+    align-items:center;
+}
 

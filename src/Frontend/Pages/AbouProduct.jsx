@@ -34,7 +34,6 @@ const AbouProduct = () => {
   }
   return (
     <div className='about-products'>
-      <Header/>
       {
         productById?
         <div>

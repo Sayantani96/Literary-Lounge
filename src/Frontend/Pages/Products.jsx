@@ -74,8 +74,12 @@ const ProductListing = () => {
 
   return (
     <>
-    <Header/>
-    <h3>Wecome {JSON.parse(localStorage.getItem("userDetails")).firstName}</h3>
+  <div className="product-body">
+    {
+      isLoggedIn && <h3>Wecome {JSON.parse(localStorage.getItem("userDetails")).firstName}</h3>
+    }
+    
+    <div className="main-section">
     <div className="filter-section">
       <FilterLayout/>
     </div>
@@ -103,6 +107,8 @@ const ProductListing = () => {
             </div>:
             <div>Products Not Found</div>
         }
+    </div>
+    </div>
     </div>
     <Footer/>
     </>

@@ -37,6 +37,7 @@ return{
         const filteredDataBySearch=action.payload.filteredData.filter(data=>
             data.title.toLowerCase().includes(action.payload.searchText.toLowerCase())
             )
+        console.log(filteredDataBySearch);
         return {
             ...state,
             filteredData:[...filteredDataBySearch]

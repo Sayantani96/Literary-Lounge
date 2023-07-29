@@ -5,6 +5,7 @@ import "./Cart.css"
 import { WishlistContext } from '../utilities/WishListContext';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Components/Header/Header';
+import ModalLayout from '../Components/ModalLayout/ModalLayout';
 // import Checkout from './Checkout';
 
 
@@ -45,9 +46,11 @@ const Cart = () => {
       navigate('/wishlist');
       
   }
+  // const closeModal=()=>{
+  //   navigate('/')
+  // }
   return (
     <>
-    <Header/>
     <div className="cart-container">
       <h3>Cart Items</h3>
       {
@@ -76,7 +79,15 @@ const Cart = () => {
       {/* {
         showCheckout && <Checkout totalPrice={totalPrice}/>
       } */}
+      
     </div>
+    {
+        showCheckout && <ModalLayout 
+        modalHeading="Address List" 
+        isOpen={true}
+        modalBody="Addresses"
+        />
+      }
     </>
   )
 }

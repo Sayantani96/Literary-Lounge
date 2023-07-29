@@ -30,7 +30,6 @@ const Wishlist = () => {
   
   return (
     <div>
-      <Header/>
       <div className='wishlist-cards'>
         <h3>Wishlist Items</h3>
       {

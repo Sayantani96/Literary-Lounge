@@ -13,7 +13,6 @@ const Home = () => {
   }
   return (
    <>
-   <Header/>
    <div className="hero-section">
     <section>
       <h1>Immerse Yourself in the World of Words</h1>

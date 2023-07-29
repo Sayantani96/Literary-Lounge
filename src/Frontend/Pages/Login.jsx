@@ -24,7 +24,9 @@ const Login = () => {
   };
 
   return (
+  
     <FormBackground>
+  <div className="auth-section">
     <FormModal>
     <div className="form">
      <form onSubmit={handleSubmit}>
@@ -51,7 +53,9 @@ const Login = () => {
      </form>
     </div>
     </FormModal>
+    </div>
     </FormBackground>
+    
   )
 }
 

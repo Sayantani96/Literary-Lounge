@@ -5,6 +5,7 @@ import FormInput from '../Components/FormInput/FormInput';
 import Button from '../Components/Button';
 import FormModal from '../Components/FormModal';
 import { AuthContext } from '../utilities/AuthContext';
+import './Login.css'
 const Auth = () => {
 
   const {signUp}=useContext(AuthContext);
@@ -50,6 +51,7 @@ const Auth = () => {
 
   return (
     <FormBackground>
+        <div className="auth-section">
       <FormModal>
     <form onSubmit={handleSubmit}>
         <FormInput
@@ -84,6 +86,7 @@ const Auth = () => {
     </form>
     <p>Already Signed Up? <Link to="/login">Log in here</Link></p>
     </FormModal>
+    </div>
     </FormBackground>
   );
 };

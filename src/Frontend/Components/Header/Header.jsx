@@ -33,9 +33,9 @@ const Header = () => {
 
   return (
     <div className="header">
-          <div className="logo-container">
+          <NavLink to="/" className="logo-container">
               <Logo/>
-          </div>
+          </NavLink>
         <div className="search-container">
           <FormInput
       formPlaceholder="Search Products"

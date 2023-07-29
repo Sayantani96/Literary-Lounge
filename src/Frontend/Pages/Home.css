@@ -2,7 +2,7 @@
     display: flex;
     justify-content:space-between;
     margin-top: 15em;
-    padding: 0 15em;
+    padding: 0 25em;
     font-style:Helvetica;
 }
 
@@ -14,4 +14,8 @@
 .featured-section{
     text-align: left;
     padding: 65px;
+}
+
+.landing-page-text{
+    width: 30em;
 }

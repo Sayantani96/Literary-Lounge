@@ -6,6 +6,7 @@ import { WishlistContext } from '../utilities/WishListContext';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Components/Header/Header';
 import ModalLayout from '../Components/ModalLayout/ModalLayout';
+import Address from './Address';
 // import Checkout from './Checkout';
 
 
@@ -82,11 +83,7 @@ const Cart = () => {
       
     </div>
     {
-        showCheckout && <ModalLayout 
-        modalHeading="Address List" 
-        isOpen={true}
-        modalBody="Addresses"
-        />
+        showCheckout && <Address/>
       }
     </>
   )

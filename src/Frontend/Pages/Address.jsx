@@ -1,8 +1,12 @@
 import React from 'react'
-
+import ModalLayout from '../Components/ModalLayout/ModalLayout'
 const Address = () => {
   return (
-    <div>Address</div>
+    <ModalLayout 
+    modalHeading="Address List" 
+    isOpen={true}
+    modalBody="Addresses"
+    />
   )
 }
 

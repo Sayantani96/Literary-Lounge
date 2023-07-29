@@ -5,7 +5,8 @@ const FormInput = ({
     formType,
     formName,
     formValue,
-    formChange
+    formChange,
+    formKeyPress
 }) => {
   return (
     <div>
@@ -15,6 +16,7 @@ const FormInput = ({
         name={formName} 
         value={formValue} 
         onChange={formChange}
+        onKeyDown={formKeyPress}
         required
         className="form-input"
     />

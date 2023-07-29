@@ -40,6 +40,7 @@ const Header = () => {
           <FormInput
       formPlaceholder="Search Products"
       formChange={handleSearchText}
+      formKeyPress={(e)=>e.which===13 && navigate('/products')}
       />
       </div>
           <div className={hamburgerOpen? "menu-container expanded": "menu-container"}>

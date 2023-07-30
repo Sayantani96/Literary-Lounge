@@ -21,13 +21,22 @@
   transition: opacity 0.3s ease-in-out;
   }
 
-  .modal.open {
-    visibility: visible;
-    opacity: 1;
+  .modal{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+  }
+
+  .modal-background.open {
+    visibility: visible;
+    opacity: 1;
+   
+  }
+
+  .modal-background.close{
+    visibility: hidden;
+  opacity: 0;
   }
 
   .modal-content h2 {

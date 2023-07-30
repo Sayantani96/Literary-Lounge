@@ -17,6 +17,7 @@ import { FilterContextProvider } from "./Frontend/utilities/FilterContext";
 import { AuthContextProvider } from "./Frontend/utilities/AuthContext";
 import ProtectedRoute from "./Frontend/utilities/HOC/ProtectedRoute";
 import Header from "./Frontend/Components/Header/Header";
+import { AddressContextProvider } from "./Frontend/utilities/AddressContext";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <WishlistContextProvider>
       <FilterContextProvider>
       <CategoryContextProvider>
+      <AddressContextProvider>
       <Header/>
       <Routes>
        <Route path="/" element={<Home/>}/>
@@ -60,6 +62,7 @@ function App() {
         {/* <Route path="/*" element={<ErrorPage/>}/> */}
         
       </Routes>
+      </AddressContextProvider>
     </CategoryContextProvider>
     </FilterContextProvider>
     </WishlistContextProvider>

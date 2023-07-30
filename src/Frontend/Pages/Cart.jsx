@@ -4,8 +4,7 @@ import Button from '../Components/Button';
 import "./Cart.css"
 import { WishlistContext } from '../utilities/WishListContext';
 import { useNavigate } from 'react-router-dom';
-import Header from '../Components/Header/Header';
-import ModalLayout from '../Components/ModalLayout/ModalLayout';
+import { AddressContext } from '../utilities/AddressContext';
 import Address from './Address';
 // import Checkout from './Checkout';
 
@@ -19,6 +18,8 @@ const Cart = () => {
     decrement,
     addToCart}=useContext(CartContext);
 
+    const {showAddressModal,setShowAddressModal}=useContext(AddressContext)
+
     const {
       fetchWishlistData,
       addToWishlist
@@ -26,7 +27,7 @@ const Cart = () => {
 
     console.log(cartData.cart);
 
-  const [showCheckout,setShowCheckout]=useState(false);
+  // const [showCheckout,showModalForAddress]=useState(false);
 
   const removeProduct=value=>{
     removeItem(value);
@@ -38,8 +39,8 @@ const Cart = () => {
     decrement(value);
   }
   const openCheckOutModel=()=>{
-    setShowCheckout(true);
-  }
+    setShowAddressModal(true);
+  };
   const moveToWishlist=async (value)=>{
     removeItem(value);
     await fetchWishlistData();
@@ -56,6 +57,7 @@ const Cart = () => {
       <h3>Cart Items</h3>
       {
         cartData.cart?
+        cartData.cart!==undefined?
         cartData.cart.length>0?
         cartData.cart.map(data=><div key={data.id}>
         <h5>{data.name}</h5>
@@ -71,6 +73,9 @@ const Cart = () => {
     </div>:
     <div>
       Cart is Empty
+    </div>:
+    <div>
+      Cart is not defined
     </div>
       }
       {/* {
@@ -80,11 +85,11 @@ const Cart = () => {
       {/* {
         showCheckout && <Checkout totalPrice={totalPrice}/>
       } */}
+
+      <Address/>
       
     </div>
-    {
-        showCheckout && <Address/>
-      }
+    
     </>
   )
 }

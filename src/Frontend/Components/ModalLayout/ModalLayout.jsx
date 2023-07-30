@@ -1,14 +1,21 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Button from '../Button'
 import './ModalLayout.css'
-const ModalLayout = ({modalHeading,isOpen,modalBody}) => {
+import { AddressContext } from '../../utilities/AddressContext'
+
+const ModalLayout = ({modalHeading,children}) => {
+  const {setShowAddressModal,showAddressModal}=useContext(AddressContext)
+  const closeModal=()=>{
+    console.log("Entering Here")
+    setShowAddressModal(false);
+  }
   return (
-  <div className="modal-background">
-    <div className={`modal ${isOpen ? 'open' : ''}`}>
+  <div className={`modal-background ${showAddressModal ? 'open' : 'close'}`}>
+    <div className={`modal`}>
       <div className="modal-content">
         <h2>{modalHeading}</h2>
-        {modalBody}
-        <Button className="close-btn">
+        {children}
+        <Button className="close-btn" onClickOperation={closeModal}>
           Close
         </Button>
       </div>

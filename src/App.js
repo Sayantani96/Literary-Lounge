@@ -61,7 +61,11 @@ function App() {
         }/>
         <Route path="/categories/:id" element={<FeaturedCategory/>}/>
         {/* <Route path="/*" element={<ErrorPage/>}/> */}
-        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/checkout" element={
+      <ProtectedRoute>
+        <Checkout/>
+        </ProtectedRoute>
+        }/>
         
       </Routes>
       </AddressContextProvider>

@@ -6,6 +6,7 @@ import Button from '../Components/Button';
 import FormModal from '../Components/FormModal';
 import { AuthContext } from '../utilities/AuthContext';
 import './Login.css'
+
 const Auth = () => {
 
   const {signUp}=useContext(AuthContext);
@@ -75,13 +76,14 @@ const Auth = () => {
           formValue={formData.email}
           formChange={handleChange}
         />
-        <FormInput
+      <FormInput
           formType="password"
           formPlaceholder="Password"
           formName="password"
           formValue={formData.password}
           formChange={handleChange}
         />
+        
       <Button onClickOperation={()=>{}} btnType="submit">Submit</Button>
     </form>
     <p>Already Signed Up? <Link to="/login">Log in here</Link></p>

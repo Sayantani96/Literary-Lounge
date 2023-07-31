@@ -79,16 +79,22 @@ const cartReducer=(state,action)=>{
                 }
             }
 
-        // case 'TOTAL_PRICE':
-        //     let titalPrice=0;
-        //     const totalPrice=state.cartData.reduce((accumulator,current)=>{
-        //         accumulator+=(current.price*current.qty)
-        //         return accumulator
-        //     },0)
-        //     return {
-        //         ...state,
-        //         totalPrice:totalPrice
-        //     };
+        case 'TOTAL_PRICE':
+            let totalPrice=0;
+            if(state.cartData.cart){
+                totalPrice=state.cartData.cart.reduce((accumulator,current)=>{
+                    accumulator+=(current.price*current.qty)
+                    return accumulator
+                },0)
+                return {
+                    ...state,
+                    totalPrice:totalPrice
+                };
+            }
+           return {
+            ...state
+           }
+            
 
         default:
             return state;

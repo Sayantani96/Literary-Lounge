@@ -30,6 +30,7 @@ export const CartContextProvider=({children})=>{
       if(response){
         console.log("response from cart API");
         dispatch({type:'SET_DATA', payload: response})
+        dispatch({type:'TOTAL_PRICE'})
       }
       
     }
@@ -125,7 +126,16 @@ export const CartContextProvider=({children})=>{
     }
     
 
-    const value={state,fetchData,addToCart,removeItem,increment,decrement,isPresentInCart,showAlertForCart};
+    const value={
+      state,
+      fetchData,
+      addToCart,
+      removeItem,
+      increment,
+      decrement,
+      isPresentInCart,
+      showAlertForCart
+    };
 
     return (
         <CartContext.Provider value={value}>

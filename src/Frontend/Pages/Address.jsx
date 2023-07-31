@@ -24,10 +24,12 @@ const Address = () => {
 
   const handleCheckboxChange = (event, addressId) => {
     if (event.target.checked) {
+      
       setSelectedAddressId(addressId);
-      const checkoutAddress=address.find(addr=>addr._id===selectedAddressId);
+      const checkoutAddress=address.find(addr=>addr._id===addressId);
+      console.log(checkoutAddress);
       setChosenAddress(checkoutAddress);
-      console.log(chosenAddress)
+
     } else {
       setSelectedAddressId(null);
     }
@@ -82,12 +84,12 @@ const Address = () => {
       }
         }/>
       <button onClick={addAddressToList}>Add</button>
+      </> 
+     }
+
       <div>
       <Link to="/checkout">Go to Checkout Page</Link>
       </div>
-      
-      </> 
-     }
     </ModalLayout>
   )
 }

@@ -80,12 +80,12 @@ const cartReducer=(state,action)=>{
             }
 
         case 'TOTAL_PRICE':
-            let totalPrice=0;
             if(state.cartData.cart){
-                totalPrice=state.cartData.cart.reduce((accumulator,current)=>{
+                const totalPrice=state.cartData.cart.reduce((accumulator,current)=>{
                     accumulator+=(current.price*current.qty)
                     return accumulator
                 },0)
+                console.log(totalPrice)
                 return {
                     ...state,
                     totalPrice:totalPrice

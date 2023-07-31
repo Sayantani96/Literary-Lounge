@@ -12,11 +12,20 @@ import Address from './Address';
 const Cart = () => {
   const navigate=useNavigate();
   const {
-    state:{cartData},
+    state:{cartData,totalPrice},
     removeItem,
     increment,
     decrement,
-    addToCart}=useContext(CartContext);
+    addToCart,
+    dispatch
+  }=useContext(CartContext);
+
+  useEffect(()=>{
+      const totalPriceOfCart=()=>{
+        dispatch({type:'TOTAL_PRICE'})
+      }
+      totalPriceOfCart()
+    },[cartData])
 
     const {showAddressModal,setShowAddressModal}=useContext(AddressContext)
 
@@ -78,9 +87,9 @@ const Cart = () => {
       Cart is not defined
     </div>
       }
-      {/* {
-        cartData.length>0? <p>Total Price:{totalPrice}</p>:''
-      } */}
+      {
+        cartData.cart.length>0? <p>Total Price:{totalPrice}</p>:0
+      }
       <Button onClickOperation={openCheckOutModel}>Checkout</Button>
       {/* {
         showCheckout && <Checkout totalPrice={totalPrice}/>

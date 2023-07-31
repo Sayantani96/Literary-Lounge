@@ -30,7 +30,6 @@ export const CartContextProvider=({children})=>{
       if(response){
         console.log("response from cart API");
         dispatch({type:'SET_DATA', payload: response})
-        dispatch({type:'TOTAL_PRICE'})
       }
       
     }
@@ -110,12 +109,7 @@ export const CartContextProvider=({children})=>{
       .catch(error=>console.log(error))
        dispatch({type:'DECREMENT_ITEM_QTY',payload:value})
     }
-    // useEffect(()=>{
-    //   const totalPriceOfCart=()=>{
-    //     dispatch({type:'TOTAL_PRICE'})
-    //   }
-    //   totalPriceOfCart()
-    // },[state.cartData])
+    
 
     const isPresentInCart=value=>{
       if(state.cartData.cart){
@@ -128,6 +122,7 @@ export const CartContextProvider=({children})=>{
 
     const value={
       state,
+      dispatch,
       fetchData,
       addToCart,
       removeItem,

@@ -15,7 +15,7 @@ const Checkout = () => {
         {cartData.cart.map(prod=>
         <li key={prod._id}>
           <span>{prod.title}</span>
-          <span>{prod.price}</span>
+          <span>{prod.price}x{prod.qty}</span>
         </li>
           )}
       </ul>

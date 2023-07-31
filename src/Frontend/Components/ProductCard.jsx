@@ -7,7 +7,7 @@ import AlertBox from '../Components/AlertBox/AlertBox'
 
 const ProductCard = ({title,author,category,price,prod,id}) => {
 
-    const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart}=useContext(CartContext);
+    const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart,dispatch}=useContext(CartContext);
     const {addToWishlist,fetchWishlistData,showAlertForWishlist}=useContext(WishlistContext);
     const [addToCartClicked, setAddToCartClicked] = useState(false);
     const [addToWishlistClicked, setAddToWishlistClicked] = useState(false);
@@ -17,6 +17,7 @@ const ProductCard = ({title,author,category,price,prod,id}) => {
     }
     const addProductToCart=async (value)=>{
         await fetchData();
+        dispatch({type:'TOTAL_PRICE'})
         if(!isPresentInCart(value)) addToCart(value);
         if(isPresentInCart(value)) increment(value);
         setAddToCartClicked(true);

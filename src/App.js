@@ -18,6 +18,7 @@ import { AuthContextProvider } from "./Frontend/utilities/AuthContext";
 import ProtectedRoute from "./Frontend/utilities/HOC/ProtectedRoute";
 import Header from "./Frontend/Components/Header/Header";
 import { AddressContextProvider } from "./Frontend/utilities/AddressContext";
+import Checkout from "./Frontend/Pages/Checkout";
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
         }/>
         <Route path="/categories/:id" element={<FeaturedCategory/>}/>
         {/* <Route path="/*" element={<ErrorPage/>}/> */}
+        <Route path="/checkout" element={<Checkout/>}/>
         
       </Routes>
       </AddressContextProvider>

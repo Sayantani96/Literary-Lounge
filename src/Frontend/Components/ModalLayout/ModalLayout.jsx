@@ -14,10 +14,14 @@ const ModalLayout = ({modalHeading,children}) => {
     <div className={`modal`}>
       <div className="modal-content">
         <h2>{modalHeading}</h2>
+        <div>
         {children}
+        </div>
+        <section>
         <Button className="close-btn" onClickOperation={closeModal}>
           Close
         </Button>
+        </section>
       </div>
     </div>
     </div>

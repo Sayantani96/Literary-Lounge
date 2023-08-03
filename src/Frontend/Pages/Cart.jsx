@@ -6,6 +6,7 @@ import { WishlistContext } from '../utilities/WishListContext';
 import { useNavigate } from 'react-router-dom';
 import { AddressContext } from '../utilities/AddressContext';
 import Address from './Address';
+import AlertBox from '../Components/AlertBox/AlertBox'
 // import Checkout from './Checkout';
 
 
@@ -20,6 +21,7 @@ const Cart = () => {
     dispatch
   }=useContext(CartContext);
 
+
   useEffect(()=>{
       const totalPriceOfCart=()=>{
         dispatch({type:'TOTAL_PRICE'})
@@ -31,7 +33,9 @@ const Cart = () => {
 
     const {
       fetchWishlistData,
-      addToWishlist
+      addToWishlist,
+      showAlertForWishlist,
+      setAlertForWishlist
     }=useContext(WishlistContext);
 
     console.log(cartData.cart);
@@ -54,7 +58,7 @@ const Cart = () => {
     removeItem(value);
     await fetchWishlistData();
         addToWishlist(value)
-      navigate('/wishlist');
+      setAlertForWishlist(true);
       
   }
   // const closeModal=()=>{
@@ -94,6 +98,9 @@ const Cart = () => {
       {/* {
         showCheckout && <Checkout totalPrice={totalPrice}/>
       } */}
+      {
+        showAlertForWishlist && <AlertBox>Item Moved to Wishlist</AlertBox>
+      }
 
       <Address/>
       

@@ -4,6 +4,7 @@ import Header from '../Components/Header/Header';
 import './WishList.css'
 import Button from '../Components/Button'
 import { CartContext } from '../utilities/CartContext';
+import AlertBox from '../Components/AlertBox/AlertBox';
 const Wishlist = () => {
   const {
     wishListState:{
@@ -11,7 +12,8 @@ const Wishlist = () => {
         wishlist
       }
     },
-    removeWishlistItem
+    removeWishlistItem,
+    showAlertForRemoveItem
   }=useContext(WishlistContext);
 
   const{
@@ -49,6 +51,9 @@ const Wishlist = () => {
     </div>
       }
       </div>
+      {
+        showAlertForRemoveItem && <AlertBox>Removed Item From Wishlist</AlertBox>
+      }
     </div>
   )
 }

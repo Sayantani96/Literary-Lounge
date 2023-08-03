@@ -63,6 +63,8 @@ export const AuthContextProvider=({children})=>{
     }
 
     const signOut=()=>{
+        localStorage.removeItem("userDetails");
+        localStorage.removeItem("userToken");
         setIsLoggedIn(false);
     }
 

@@ -4,11 +4,13 @@ import { useNavigate, Link } from 'react-router-dom';
 import { CartContext } from '../utilities/CartContext';
 import { WishlistContext } from '../utilities/WishListContext';
 import AlertBox from '../Components/AlertBox/AlertBox'
+import { AuthContext } from '../utilities/AuthContext';
 
 const ProductCard = ({title,author,category,price,prod,id}) => {
 
     const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart,dispatch}=useContext(CartContext);
     const {addToWishlist,fetchWishlistData,showAlertForWishlist}=useContext(WishlistContext);
+    const {isLoggedIn}=useContext(AuthContext);
     const [addToCartClicked, setAddToCartClicked] = useState(false);
     const [addToWishlistClicked, setAddToWishlistClicked] = useState(false);
     const navigate=useNavigate();
@@ -16,17 +18,28 @@ const ProductCard = ({title,author,category,price,prod,id}) => {
         navigate('/cart');
     }
     const addProductToCart=async (value)=>{
+    if(isLoggedIn){
         await fetchData();
         dispatch({type:'TOTAL_PRICE'})
         if(!isPresentInCart(value)) addToCart(value);
         if(isPresentInCart(value)) increment(value);
         setAddToCartClicked(true);
     }
+    else{
+        navigate('/auth');
+    }
+        
+    }
    
     const addProductToWishlist=async(value)=>{
+    if(isLoggedIn){
         await fetchWishlistData();
         addToWishlist(value)
         setAddToWishlistClicked(true);
+    } else{
+        navigate('/auth')
+    }
+       
     }
     const goToWishlist=()=>{
         navigate('/wishlist');

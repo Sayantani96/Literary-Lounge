@@ -14,6 +14,7 @@ export const WishlistContextProvider=({children})=>{
 
   const [userToken,setUserToken]=useState(localStorage.getItem("token"));
   const [showAlertForWishlist,setAlertForWishlist]=useState(false);
+  const [showAlertForRemoveItem,setAlertForRemoveItem]=useState(false);
     const [wishListState,dispatch]=useReducer(WishListReducer,initialState);
     useEffect(()=>{
       if(userToken)
@@ -66,9 +67,21 @@ export const WishlistContextProvider=({children})=>{
       })
       .catch(error=>console.log(error))
      dispatch({type:'REMOVE_ITEM',payload:value}) 
+     if(response){
+      setAlertForRemoveItem(true);
+      setTimeout(() => setAlertForRemoveItem(false), 2000);
+     }
     }
 
-    const value={wishListState,addToWishlist,fetchWishlistData,removeWishlistItem,showAlertForWishlist};
+    const value={
+      wishListState,
+      addToWishlist,
+      fetchWishlistData,
+      removeWishlistItem,
+      showAlertForWishlist,
+      setAlertForWishlist,
+      showAlertForRemoveItem
+    };
 
     return (
         <WishlistContext.Provider value={value}>

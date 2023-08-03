@@ -54,6 +54,19 @@ export const AddressContextProvider=({children})=>{
       // }
     }
 
+    const removeAddressData= async(value)=>{
+      const response= await fetch(`/api/user/address/${value._id}`,{
+        method:'DELETE',
+        headers:{
+          'Content-Type': 'application/json',
+          'authorization': localStorage.getItem("token"),
+        },
+      }).then(response=>{
+        return response.json()
+      })
+      .catch(error=>console.log(error))
+    }
+
     const value= {
       showAddressModal,
       setShowAddressModal,
@@ -61,7 +74,8 @@ export const AddressContextProvider=({children})=>{
       fetchData,
       addressDataArr,
       chosenAddress,
-      setChosenAddress
+      setChosenAddress,
+      removeAddressData
     }
 
     return (

@@ -38,7 +38,7 @@ const ProductListing = () => {
         setDataToBeShown(filteredData.length>0?filteredData:productData.products);
     },[productData.products,filteredData]);
 
-    console.log(JSON.parse(localStorage.getItem("userDetails")).firstName)
+
 
    
     // const getTheorderforPrice=(order)=>{
@@ -76,7 +76,9 @@ const ProductListing = () => {
     <>
   <div className="product-body">
     {
-      isLoggedIn && <h3>Wecome {JSON.parse(localStorage.getItem("userDetails")).firstName}</h3>
+      isLoggedIn ?
+       <h3>Welcome {JSON.parse(localStorage.getItem("userDetails")).firstName}</h3>:
+       ''
     }
     
     <div className="main-section">

@@ -13,7 +13,8 @@ const Address = () => {
     addressDataArr:{address},
     fetchData,
     setChosenAddress,
-    chosenAddress
+    chosenAddress,
+    removeAddressData
   }=useContext(AddressContext)
 
   const [selectedAddressId, setSelectedAddressId] = useState(null);
@@ -41,6 +42,11 @@ const Address = () => {
     setAddressData('');
   }
 
+  const removeAddress=async(address)=>{
+    await removeAddressData(address);
+    await fetchData();
+  }
+
   return (
     <ModalLayout 
     modalHeading="Address List" 
@@ -60,6 +66,9 @@ const Address = () => {
               onChange={(event) => handleCheckboxChange(event,addr._id)}
             />
               {addr.address}
+            <button onClick={()=>removeAddress(addr)}>
+              Remove
+            </button>
               </li>
             )
           }

@@ -2,7 +2,6 @@ import React, { useContext, useEffect,useState } from 'react'
 
 import {ProductContext} from '../utilities/ProductContext';
 import Loader from '../Components/Loader';
-import { Link } from 'react-router-dom';
 import './Products.css'
 import ProductCard from '../Components/ProductCard';
 import Footer from '../Components/Footer';
@@ -10,7 +9,6 @@ import FilterLayout from '../Components/FilterLayout';
 // import PriceFilter from '../Components/ProductFilters/PriceFilter';
 import { FilterContext } from '../utilities/FilterContext';
 import { AuthContext } from '../utilities/AuthContext';
-import Header from '../Components/Header/Header';
 // import RatingsFilter from '../Components/ProductFilters/RatingsFilter';
 // import CategoriesFilter from '../Components/ProductFilters/CategoriesFilter';
 // import Loader from '../Components/Loader';

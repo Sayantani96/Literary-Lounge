@@ -6,6 +6,7 @@ import Button from '../Components/Button';
 import FormBackground from '../Components/FormBackground';
 import FormModal from '../Components/FormModal';
 import { AuthContext } from '../utilities/AuthContext';
+import AlertBox from '../Components/AlertBox/AlertBox';
 // import { Eye, EyeOff } from "react-icons/fa";
 const Login = () => {
   const [loginFormData, setloginFormData] = useState({
@@ -17,14 +18,15 @@ const Login = () => {
     setloginFormData({ ...loginFormData, [e.target.name]: e.target.value });
   };
   const {logIn,isLoggedIn}=useContext(AuthContext);
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit =(event) => {
+    event.preventDefault();
+    console.log(event);
     logIn(loginFormData);
-    if(isLoggedIn) navigate('/products')
+    navigate('/products')
   };
 
   return (
-  
+  <>
     <FormBackground>
   <div className="auth-section">
     <FormModal>
@@ -55,7 +57,7 @@ const Login = () => {
     </FormModal>
     </div>
     </FormBackground>
-    
+    </>  
   )
 }
 

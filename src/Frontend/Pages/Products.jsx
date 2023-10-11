@@ -21,7 +21,8 @@ import { AuthContext } from '../utilities/AuthContext';
 const ProductListing = () => {
     const {productData,isLoading}=useContext(ProductContext);
     const {state:{filteredData}}=useContext(FilterContext);
-    const {isLoggedIn}=useContext(AuthContext);
+    const {token}=useContext(AuthContext);
+    console.log(token);
     
     // const {
     //     sortProductsByPrice,
@@ -74,8 +75,12 @@ const ProductListing = () => {
     <>
   <div className="product-body">
     {
-      isLoggedIn ?
-       <h3>Welcome {JSON.parse(localStorage.getItem("userDetails")).firstName}</h3>:
+      token ?
+       <h3>
+        Welcome {
+       JSON.parse(localStorage.getItem("signedup-user")).userDetails.firstName
+        }
+        </h3>:
        ''
     }
     

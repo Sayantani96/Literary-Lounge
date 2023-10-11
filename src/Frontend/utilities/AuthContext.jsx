@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
+
 
 
 export const AuthContext=createContext();
@@ -6,11 +7,16 @@ export const AuthContext=createContext();
 
 
 export const AuthContextProvider=({children})=>{
-    const [isSignedUp,setIsSignedUp]=useState(false);
-    const [isLoggedIn,setIsLoggedIn]=useState(false);
 
+    const signupData=JSON.parse(localStorage.getItem("signedup-user"));
+    const [token,setToken]=useState(signupData?.token);
+    const [userData,setUserData]=useState(signupData?.userDetails);
 
+    
+
+    //Handling signup data
     const signUp=async (credentials)=>{
+
         const response=await fetch('/api/auth/signup', {
             method: 'POST',
             headers: {
@@ -24,16 +30,27 @@ export const AuthContextProvider=({children})=>{
               // Handle any error that occurred during the request
               console.error('Error submitting form:', error);
             });
+            console.log(response);
             if(response){
-              console.log(response);
-                localStorage.setItem("token",response.encodedToken);
-                setIsSignedUp(true);
+             localStorage.setItem(
+              "signedup-user",
+              JSON.stringify(
+                {
+                  token:response.encodedToken,
+                  userDetails: response.createdUser
+                }
+              )
+
+             )
+             setToken(response.encodedToken);
+              setUserData(response.createdUser);
             }else{
                 alert("Response Not Found");
             }
     }
 
     const logIn=async (credentials)=>{
+    
         const response=await fetch('/api/auth/login', {
             method: 'POST',
             headers: {
@@ -47,15 +64,28 @@ export const AuthContextProvider=({children})=>{
               // Handle any error that occurred during the request
               console.error('Error submitting form:', error);
             });
+
             if(response){
               if(response.errors){
-                alert(response.errors[0])
+                alert(response.errors[0]);
               }
-              else {
-                localStorage.setItem('userToken',response.encodedToken);
-                localStorage.setItem('userDetails',JSON.stringify(response.foundUser));
-                setIsLoggedIn(true);
+              else{
+                localStorage.setItem(
+                  "signedup-user",
+                  JSON.stringify(
+                    {
+                      token:response.encodedToken,
+                      userDetails: response.foundUser
+                    }
+                  )
+    
+                 );
+                setToken(response.encodedToken);
+                setUserData(response.foundUser);
+                console.log(token,userData);
+
               }
+             
              
             }else{
                 alert("Response Not Found");
@@ -63,12 +93,13 @@ export const AuthContextProvider=({children})=>{
     }
 
     const signOut=()=>{
-        localStorage.removeItem("userDetails");
-        localStorage.removeItem("userToken");
-        setIsLoggedIn(false);
+      console.log("Entered in signout");
+        localStorage.removeItem("signedup-user");
+        setToken(null);
+        setUserData(null);
     }
 
-    const value={signUp,isSignedUp,logIn,isLoggedIn,signOut};
+    const value={signUp,logIn,signOut,token,userData};
    
     return (
         <AuthContext.Provider value={value}>

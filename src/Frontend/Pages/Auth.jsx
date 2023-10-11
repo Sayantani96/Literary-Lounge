@@ -47,7 +47,7 @@ const Auth = () => {
     //     }else{
     //         alert("Response Not Found");
     //     }
-        navigate('/login');
+        navigate('/products');
   };
 
   return (

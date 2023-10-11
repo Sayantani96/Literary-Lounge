@@ -12,7 +12,7 @@ import { FilterContext } from '../../utilities/FilterContext';
 const Header = () => {
     const [hamburgerOpen,setHamburgerOpen]=useState(false);
 
-    const {signOut,isLoggedIn}=useContext(AuthContext);
+    const {signOut,token}=useContext(AuthContext);
 
     const {filterProductsBySearch}=useContext(FilterContext);
 
@@ -64,7 +64,7 @@ const Header = () => {
                 </NavLink>
               </li>
               {
-                isLoggedIn && <NavLink to="/" className="nav-item" onClick={authHandler}>
+                token && <NavLink to="/" className="nav-item" onClick={authHandler}>
                     Logout
                 </NavLink>
               }

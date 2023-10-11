@@ -20,7 +20,6 @@ const Login = () => {
   const {logIn,isLoggedIn}=useContext(AuthContext);
   const handleSubmit =(event) => {
     event.preventDefault();
-    console.log(event);
     logIn(loginFormData);
     navigate('/products')
   };

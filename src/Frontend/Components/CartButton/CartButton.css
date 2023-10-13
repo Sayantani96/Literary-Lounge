@@ -1,0 +1,9 @@
+.cart-btn{
+    border:none;
+    background:transparent;
+    font-weight:700;
+    font-size:20px;
+    color:#003366;
+    margin-right:1rem;
+    cursor: pointer;
+}

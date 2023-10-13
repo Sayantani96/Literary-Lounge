@@ -59,7 +59,7 @@ const Header = () => {
                   </NavLink>
               </li>
               <li>
-                <NavLink to="/auth" className="nav-item">
+                <NavLink to="/login" className="nav-item">
                   <CgProfile size={45} color="#003366"/>
                 </NavLink>
               </li>

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { WishlistContext } from '../utilities/WishListContext'
-import Header from '../Components/Header/Header';
+import {RxCrossCircled} from 'react-icons/rx'
 import './WishList.css'
-import Button from '../Components/Button'
 import { CartContext } from '../utilities/CartContext';
 import AlertBox from '../Components/AlertBox/AlertBox';
+import CartButton from '../Components/CartButton/CartButton';
+import LinkButton from '../Components/LinkButton/LinkButton';
 const Wishlist = () => {
   const {
     wishListState:{
@@ -32,17 +33,23 @@ const Wishlist = () => {
   
   return (
     <div>
-      <div className='wishlist-cards'>
+      <div className='wishlist-container'>
         <h3>Wishlist Items</h3>
       {
         wishlist?
         wishlist.length>0?
-        wishlist.map(data=><div key={data.id}>
-        <h5>{data.name}</h5>
+        wishlist.map(data=><div key={data.id} className="wishlist-prod">
+        <h5>{data.title}</h5>
         <p>{data.categoryName}</p>
         <p>Price: {data.price}</p>
-        <Button value={data} onClickOperation={removeProductFromWishlist}>Remove</Button>
-        <Button value={data} onClickOperation={addToCartFromWishlist}>Add To Cart</Button>
+        <div className="wishlist-operations">
+        <CartButton value={data} onClickOperation={removeProductFromWishlist}>
+        <RxCrossCircled size={25} color="#003366"/>
+        </CartButton>
+        </div>
+        <LinkButton value={data} onClickOperation={addToCartFromWishlist}>
+          Add To Cart
+        </LinkButton>
     </div>): <div>
         No items in Wishlist
     </div>:

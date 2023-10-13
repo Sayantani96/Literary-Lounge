@@ -3,9 +3,11 @@ import CategoryCard from './CategoryCard'
 import './Featured.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { CategoryContext } from '../utilities/CategoryContext';
-import Button from './Button';
+import LinkButton from '../Components/LinkButton/LinkButton'
 import { FilterContext } from '../utilities/FilterContext';
+
 const FeaturedCategories = () => {
+  
     const {category}=useContext(CategoryContext);
     const {sortProductsByCategories}=useContext(FilterContext)
     const navigate=useNavigate();
@@ -23,12 +25,17 @@ const FeaturedCategories = () => {
             category.length>0?
                     category.map(category=>
                     <CategoryCard key={category._id}>
+                      <div>
+                        <img src={category.image} alt="category-img" className="category-img"/>
+                      </div>
                         {
                             category.categoryName
                         }
                     <div>
                     {/* <Link to={'/categories/'+category._id}>Visit Category</Link> */}
-                    <Button onClickOperation={()=>handleCategoryVisit(category.categoryName)}>Visit Category</Button>
+                    <LinkButton onClickOperation={()=>handleCategoryVisit(category.categoryName)}>
+                      Visit Category
+                    </LinkButton>
                     </div>
                    
                     </CategoryCard>)

@@ -6,11 +6,19 @@ import { WishlistContext } from '../utilities/WishListContext';
 import AlertBox from '../Components/AlertBox/AlertBox'
 import { AuthContext } from '../utilities/AuthContext';
 
-const ProductCard = ({title,author,category,price,prod,id}) => {
+const ProductCard = ({
+    title,
+    author,
+    category,
+    price,
+    prod,
+    id,
+    image
+}) => {
 
     const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart,dispatch}=useContext(CartContext);
     const {addToWishlist,fetchWishlistData,showAlertForWishlist}=useContext(WishlistContext);
-    const {isLoggedIn}=useContext(AuthContext);
+    const {token}=useContext(AuthContext);
     const [addToCartClicked, setAddToCartClicked] = useState(false);
     const [addToWishlistClicked, setAddToWishlistClicked] = useState(false);
     const navigate=useNavigate();
@@ -18,7 +26,7 @@ const ProductCard = ({title,author,category,price,prod,id}) => {
         navigate('/cart');
     }
     const addProductToCart=async (value)=>{
-    if(isLoggedIn){
+    if(token){
         await fetchData();
         dispatch({type:'TOTAL_PRICE'})
         if(!isPresentInCart(value)) addToCart(value);
@@ -32,7 +40,7 @@ const ProductCard = ({title,author,category,price,prod,id}) => {
     }
    
     const addProductToWishlist=async(value)=>{
-    if(isLoggedIn){
+    if(token){
         await fetchWishlistData();
         addToWishlist(value)
         setAddToWishlistClicked(true);
@@ -46,6 +54,7 @@ const ProductCard = ({title,author,category,price,prod,id}) => {
     }
   return (
     <div className="product-card">
+        <img src={image} alt="book-pic" className="book-pic"/>
             <h2>
                 {title}
             </h2>

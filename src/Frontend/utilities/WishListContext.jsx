@@ -1,6 +1,8 @@
 import { useReducer,useEffect } from "react";
 import { createContext,useState } from "react";
 import WishListReducer from "./Reducer/WishlistReducer";
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext";
 
 export const WishlistContext=createContext();
 
@@ -12,14 +14,14 @@ const initialState={
 
 export const WishlistContextProvider=({children})=>{
 
-  const [userToken,setUserToken]=useState(localStorage.getItem("token"));
+  const {token}=useContext(AuthContext);
   const [showAlertForWishlist,setAlertForWishlist]=useState(false);
   const [showAlertForRemoveItem,setAlertForRemoveItem]=useState(false);
     const [wishListState,dispatch]=useReducer(WishListReducer,initialState);
     useEffect(()=>{
-      if(userToken)
+      if(token)
       fetchWishlistData();
-    },[userToken])
+    },[token])
 
     const addToWishlist=async (newData)=>{
       dispatch({type:'ADD_TO_WISHLIST',payload:newData})
@@ -27,7 +29,7 @@ export const WishlistContextProvider=({children})=>{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem('token'),
+          'authorization': token,
         },
         body: JSON.stringify(newData),
       }).then(response=>response.json())
@@ -44,7 +46,7 @@ export const WishlistContextProvider=({children})=>{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization': token,
         }
       }).then(res=>res.json())
       .catch(error=>console.log(error))
@@ -60,7 +62,7 @@ export const WishlistContextProvider=({children})=>{
         method:'DELETE',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization': token,
         },
       }).then(response=>{
         return response.json()

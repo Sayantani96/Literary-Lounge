@@ -11,3 +11,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.category-img{
+  height:15rem;
+  width:100%;
+}

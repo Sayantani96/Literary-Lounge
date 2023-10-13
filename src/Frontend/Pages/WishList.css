@@ -1,6 +1,31 @@
-.wishlist-cards{
-    width: 700px;
-    margin: 300px auto;
+.wishlist-container{
+    margin: 10rem 5rem;
     padding: 20px;
     border: 1px solid #ccc;
+}
+
+.wishlist-container h3{
+    text-align: left;
+    padding-left:3rem;
+    color:#003366;
+    font-size:2rem;
+}
+
+.wishlist-prod{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align:left;
+}
+
+.wishlist-prod h5{
+    width:100px;
+}
+.wishlist-prod p{
+    width:200px;
+    margin-top:30px;
+}
+
+.wishlist-operations{
+    margin-top:31px;
 }

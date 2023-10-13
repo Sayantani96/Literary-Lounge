@@ -1,5 +1,6 @@
 import { createContext,useContext, useEffect, useReducer, useState } from "react";
 import cartReducer from "./Reducer/CartReducer";
+import { AuthContext } from "./AuthContext";
 export const CartContext=createContext();
 
 const initialState={
@@ -9,30 +10,30 @@ const initialState={
 
 export const CartContextProvider=({children})=>{
 
-  const [userToken,setUserToken]=useState(localStorage.getItem("token"));
+  const {token}=useContext(AuthContext);
   const [showAlertForCart,setAlertForCart]=useState(false);
     const [state,dispatch]=useReducer(cartReducer,initialState);
 
-    useEffect(()=>{
-      if(userToken)
-      fetchData();
-    },[userToken])
 
     const fetchData= async ()=>{
       const response= await fetch('/api/user/cart',{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization': token,
         }
       }).then(res=>res.json())
       .catch(error=>console.log(error))
       if(response){
-        console.log("response from cart API");
         dispatch({type:'SET_DATA', payload: response})
       }
       
     }
+
+    useEffect(()=>{
+      if(token)
+      fetchData();
+    },[token])
 
     const addToCart=async (value)=>{
 
@@ -41,7 +42,7 @@ export const CartContextProvider=({children})=>{
           const response = await fetch('/api/user/cart', {
             method: 'POST',
             headers: {
-              'authorization': localStorage.getItem('token'),
+              'authorization':token,
             },
             body: JSON.stringify(value),
           });
@@ -68,7 +69,7 @@ export const CartContextProvider=({children})=>{
         method:'DELETE',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization':token,
         },
       }).then(response=>{
         return response.json()
@@ -82,7 +83,7 @@ export const CartContextProvider=({children})=>{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization': token,
         },
         body: JSON.stringify({
           action:{
@@ -98,7 +99,7 @@ export const CartContextProvider=({children})=>{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization':token,
         },
         body: JSON.stringify({
           action:{

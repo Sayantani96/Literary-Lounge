@@ -103,6 +103,7 @@ const ProductListing = () => {
            price={prod.price}
            prod={prod}
            id={prod._id}
+           image={prod.image}
            />
            )
            :

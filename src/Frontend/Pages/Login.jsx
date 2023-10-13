@@ -1,5 +1,5 @@
 import React,{useContext, useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormInput from '../Components/FormInput/FormInput';
 import './Login.css'
 import Button from '../Components/Button';
@@ -17,7 +17,7 @@ const Login = () => {
   const handleChange = (e) => {
     setloginFormData({ ...loginFormData, [e.target.name]: e.target.value });
   };
-  const {logIn,isLoggedIn}=useContext(AuthContext);
+  const {logIn}=useContext(AuthContext);
   const handleSubmit =(event) => {
     event.preventDefault();
     logIn(loginFormData);
@@ -53,6 +53,9 @@ const Login = () => {
       <Button onClickOperation={()=>{}} btnType="submit">Submit</Button>
      </form>
     </div>
+    <p className="reg-nav">
+      <Link to="/auth">Not Registered? Sign Up Now</Link>
+    </p>
     </FormModal>
     </div>
     </FormBackground>

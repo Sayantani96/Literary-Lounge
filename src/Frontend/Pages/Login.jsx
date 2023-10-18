@@ -29,6 +29,7 @@ const Login = () => {
     <FormBackground>
   <div className="auth-section">
     <FormModal>
+      <h1 style={{color:"#003366"}}>Login</h1>
     <div className="form">
      <form onSubmit={handleSubmit}>
         <FormInput 
@@ -45,16 +46,12 @@ const Login = () => {
           formValue={loginFormData.password}
           formChange={handleChange}
         />
-        {/* <Icon
-        className={passwordVisibility ? "hide" : "show"}
-        type={passwordVisibility ? EyeOff : Eye}
-        onClick={handleToggle}
-      /> */}
+      
       <Button onClickOperation={()=>{}} btnType="submit">Submit</Button>
      </form>
     </div>
     <p className="reg-nav">
-      <Link to="/auth">Not Registered? Sign Up Now</Link>
+    Not Registered?<Link to="/auth"> Sign Up Now</Link>
     </p>
     </FormModal>
     </div>

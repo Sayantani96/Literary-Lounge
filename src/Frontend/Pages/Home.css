@@ -7,8 +7,10 @@
 }
 
 .hero-image{
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 55vw;
+    position:relative;
+    right:95px;
 }
 
 .featured-section{
@@ -18,4 +20,10 @@
 
 .landing-page-text{
     width: 30em;
+    font-size:1.1rem;
+}
+
+.hero-heading{
+    font-size:2.5rem;
+    color:#003366;
 }

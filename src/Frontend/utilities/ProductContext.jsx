@@ -4,7 +4,10 @@ import { createContext, useEffect, useState } from "react";
 export const ProductContext=createContext({
     productData:null,
     setData:()=>{},
-    
+    isLoading:false,
+    bookDetail:{},
+    setBookDetail:()=>{},
+    getProductById:()=>{}  
 });
 
 
@@ -12,8 +15,10 @@ export const ProductContext=createContext({
 export const ProductContextProvider=({children})=>{
 
     const [productData,setData]=useState([]);
-    const [isLoading,setIsLoading]=useState(false)
-    const value={productData,setData,isLoading};
+    const [isLoading,setIsLoading]=useState(false);
+    const [bookDetail,setBookDetail]=useState({});
+    
+
     useEffect(()=>{
       const fetchData=async()=>{
         setIsLoading(true);
@@ -25,6 +30,22 @@ export const ProductContextProvider=({children})=>{
       }
       fetchData();
     },[])
+
+    const getProductById=async (id)=>{
+      const response=await fetch(`/api/products/${id}`)
+      .then(res=>res.json())
+      .catch(err=>console.log(err)) 
+      setBookDetail(response.product);
+    }
+
+    const value={
+      productData,
+      setData,
+      isLoading,
+      bookDetail,
+      setBookDetail,
+      getProductById
+    };
    
     return (
         <ProductContext.Provider value={value}>

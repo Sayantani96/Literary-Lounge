@@ -46,7 +46,7 @@ const FilterLayout = () => {
   return (
     <div className="filter-section">
         <h3>Categories</h3>
-        <select value={selectedCategory} onChange={handleCategoryChange}>
+        <select value={selectedCategory} onChange={handleCategoryChange} className='category-select'>
         <option value="">Select</option>
           {category.map((category) => (
             <option key={category._id} value={category.categoryName}>
@@ -68,7 +68,7 @@ const FilterLayout = () => {
           value={rating}
           onChange={handleRatingChange}
         />
-        <p>Selected Rating: {rating}</p>
+        <p className='rating-text'>Selected Rating: {rating}</p>
         <Button onClickOperation={handleClearFilter}>Clear All</Button>
     </div>
   )

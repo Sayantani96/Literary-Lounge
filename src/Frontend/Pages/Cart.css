@@ -27,17 +27,22 @@
 
   .cart-product h5{
     width: 100px;
+    margin-top:75px;
+  }
+
+  .cart-product p{
+    margin-top:75px;
   }
 
   .cart-operations{
-    margin-top:13px;
+    margin-top:75px;
   }
 
   .total-price{
     text-align: right;
     position:relative;
-    bottom:8rem;
-    right: 5rem;
+    bottom:15rem;
+    right: 8rem;
     color:#003366;
     font-weight:700;
     font-size:1.5rem;
@@ -48,4 +53,15 @@
     position:relative;
     bottom:11.5rem;
     right:3rem;   
+  }
+
+  div,p{
+    font-size:1.3rem;
+    font-weight:600;
+  }
+  
+  .cart-book-img{
+    height:200px;
+    width:200px;
+    padding-bottom:1.07rem;
   }

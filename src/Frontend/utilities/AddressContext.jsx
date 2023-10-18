@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { createContext, useEffect, useState } from "react";
+import { AuthContext } from "./AuthContext";
 
 export const AddressContext=createContext();
 
@@ -6,7 +8,7 @@ export const AddressContext=createContext();
 
 export const AddressContextProvider=({children})=>{
 
-  const [userToken,setUserToken]=useState(localStorage.getItem("token"));
+  const {token}=useContext(AuthContext);
   
   const[addressDataArr,setAddressDataArr]=useState()
     const [showAddressModal,setShowAddressModal]=useState(false);  
@@ -15,16 +17,16 @@ export const AddressContextProvider=({children})=>{
     
 
     useEffect(()=>{
-      if(userToken)
+      if(token)
       fetchData();
-    },[userToken])
+    },[token])
 
     const fetchData= async ()=>{
       const response= await fetch('/api/user/addresses',{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization':token,
         }
       }).then(res=>res.json())
       .catch(error=>console.log(error))
@@ -40,7 +42,7 @@ export const AddressContextProvider=({children})=>{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization':token,
         },
         body: JSON.stringify({address})
       }).then(response=>response.json())
@@ -59,7 +61,7 @@ export const AddressContextProvider=({children})=>{
         method:'DELETE',
         headers:{
           'Content-Type': 'application/json',
-          'authorization': localStorage.getItem("token"),
+          'authorization':token,
         },
       }).then(response=>{
         return response.json()

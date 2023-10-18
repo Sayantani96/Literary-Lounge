@@ -4,7 +4,7 @@
     border-left: none;
     border-right: none;
     outline:none;
-    min-width: 25vw;
+    min-width: 20vw;
     min-height: 5vh;
     font-style:  Helvetica;
     font-size:18px;
@@ -13,7 +13,5 @@
 }
 
 .pwd-icon{
-    position:relative;
-    top:20px;
-    right:20px;
+    position:absolute;
 }

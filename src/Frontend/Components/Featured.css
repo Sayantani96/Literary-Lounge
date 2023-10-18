@@ -16,3 +16,17 @@
   height:15rem;
   width:100%;
 }
+
+.category-name{
+  font-size:2rem;
+  font-weight:600;
+  color:#003366;
+}
+
+.link-btn{
+  text-align:center;
+  line-height: 5px;
+  padding:25px;
+  font-weight:700;
+  font-size:1.35rem;
+}

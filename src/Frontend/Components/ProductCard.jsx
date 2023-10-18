@@ -1,10 +1,13 @@
 import React, {useState,useContext} from 'react'
 import Button from '../Components/Button';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { CartContext } from '../utilities/CartContext';
 import { WishlistContext } from '../utilities/WishListContext';
 import AlertBox from '../Components/AlertBox/AlertBox'
 import { AuthContext } from '../utilities/AuthContext';
+import LinkButton from '../Components/LinkButton/LinkButton'
+import { ProductContext } from '../utilities/ProductContext';
+
 
 const ProductCard = ({
     title,
@@ -19,6 +22,7 @@ const ProductCard = ({
     const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart,dispatch}=useContext(CartContext);
     const {addToWishlist,fetchWishlistData,showAlertForWishlist}=useContext(WishlistContext);
     const {token}=useContext(AuthContext);
+    const {getProductById}=useContext(ProductContext);
     const [addToCartClicked, setAddToCartClicked] = useState(false);
     const [addToWishlistClicked, setAddToWishlistClicked] = useState(false);
     const navigate=useNavigate();
@@ -52,15 +56,24 @@ const ProductCard = ({
     const goToWishlist=()=>{
         navigate('/wishlist');
     }
+    const visitBook=()=>{
+        getProductById(id);
+        navigate(`${id}`);
+    }
+
   return (
     <div className="product-card">
         <img src={image} alt="book-pic" className="book-pic"/>
+        <div className="book-desc">
             <h2>
                 {title}
             </h2>
             <p>{author}</p>
             <p>{category}</p>
-            <p>{price}</p>
+            <p>{price}/-</p>
+        </div>
+            
+            <div className="btn-section">
             {
                 addToCartClicked?
                 <Button value={prod} onClickOperation={goToCart}>Go To Cart</Button>:
@@ -76,10 +89,12 @@ const ProductCard = ({
                 <Button value={prod} onClickOperation={addProductToWishlist}>Add to Wishlist</Button>
 
             }
+            </div>
+           
             {
                 showAlertForWishlist && <AlertBox>Added to Wishlist!</AlertBox>
             }
-           <Link to={'/products/'+id}>Visit Item</Link>
+           <LinkButton onClickOperation={visitBook}>Visit Item</LinkButton>
            
            </div>
   )

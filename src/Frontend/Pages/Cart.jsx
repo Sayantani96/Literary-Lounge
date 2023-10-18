@@ -4,12 +4,11 @@ import Button from '../Components/Button';
 import "./Cart.css"
 import { WishlistContext } from '../utilities/WishListContext';
 import { useNavigate } from 'react-router-dom';
-// import { AddressContext } from '../utilities/AddressContext';
-// import Address from './Address';
+import { AddressContext } from '../utilities/AddressContext';
+import Address from './Address';
 import AlertBox from '../Components/AlertBox/AlertBox'
 import CartButton from '../Components/CartButton/CartButton';
 import LinkButton from '../Components/LinkButton/LinkButton';
-// import Checkout from './Checkout';
 import {AiOutlinePlusCircle} from 'react-icons/ai'
 import {AiOutlineMinusCircle} from 'react-icons/ai'
 import {RxCrossCircled} from 'react-icons/rx'
@@ -35,7 +34,7 @@ const Cart = () => {
       totalPriceOfCart()
     },[cartData])
 
-    // const {showAddressModal,setShowAddressModal}=useContext(AddressContext)
+    const {showAddressModal,setShowAddressModal}=useContext(AddressContext)
 
     const {
       fetchWishlistData,
@@ -58,8 +57,7 @@ const Cart = () => {
     decrement(value);
   }
   const openCheckOutModel=()=>{
-    // setShowAddressModal(true);
-    console.log("address here!")
+    setShowAddressModal(true);
   };
   const moveToWishlist=async (value)=>{
     removeItem(value);
@@ -90,7 +88,7 @@ const Cart = () => {
         cartData.cart.map(
           data=>
         <div key={data.id} className="cart-product">
-          <p>{data.description}</p>
+          <img src={data.image} alt="book-img" className='cart-book-img'/>
         <h5>{data.title}</h5>
         
         <p>Price: {data.price}/-</p>
@@ -127,7 +125,11 @@ const Cart = () => {
         showAlertForWishlist && <AlertBox>Item Moved to Wishlist</AlertBox>
       }
 
-      {/* <Address/> */}
+      {
+        showAddressModal && <Address/>
+      }
+
+      
       
     
     </>

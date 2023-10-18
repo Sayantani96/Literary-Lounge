@@ -6,70 +6,21 @@ import './Products.css'
 import ProductCard from '../Components/ProductCard';
 import Footer from '../Components/Footer';
 import FilterLayout from '../Components/FilterLayout';
-// import PriceFilter from '../Components/ProductFilters/PriceFilter';
 import { FilterContext } from '../utilities/FilterContext';
 import { AuthContext } from '../utilities/AuthContext';
-// import RatingsFilter from '../Components/ProductFilters/RatingsFilter';
-// import CategoriesFilter from '../Components/ProductFilters/CategoriesFilter';
-// import Loader from '../Components/Loader';
-// import Header from '../Components/Header/Header';
-// import Search from '../Components/Search/Search';
-// import './productListing.css';
-// import ClearFilter from '../Components/ProductFilters/ClearFilter';
+
 
 
 const ProductListing = () => {
     const {productData,isLoading}=useContext(ProductContext);
     const {state:{filteredData}}=useContext(FilterContext);
     const {token}=useContext(AuthContext);
-    console.log(token);
     
-    // const {
-    //     sortProductsByPrice,
-    //     sortProductsByCategories,
-    //     filterProductsBySearch,
-    //     slideFilterByRating,
-    //     clearTheFilters
-    // }=useContext(FilterContext);
 
     const [dataToBeShown,setDataToBeShown]=useState([]);
     useEffect(()=>{
         setDataToBeShown(filteredData.length>0?filteredData:productData.products);
     },[productData.products,filteredData]);
-
-
-
-   
-    // const getTheorderforPrice=(order)=>{
-    //     sortProductsByPrice(
-    //                 filteredData.length>0?filteredData:productData,order
-    //                  );
-        
-    // }
-    // const getTheorderforCategory=(category)=>{
-    //     sortProductsByCategories(
-    //         productData,category
-    //         )
-    // }
-    // const getProductBySearch=(event)=>{
-    //     const delaySearch=setTimeout(()=>{
-    //         filterProductsBySearch(
-    //             productData,event.target.value
-    //             )
-    //     },1500);
-
-    //     return ()=>clearTimeout(delaySearch)
-        
-    // }
-    // const getProductsByRating=(value)=>{
-    //     slideFilterByRating(
-    //         filteredData.length>0?filteredData:productData,value
-    //         );
-    // }
-
-    // const clearFilters=()=>{
-    //     clearTheFilters();
-    // }
 
   return (
     <>

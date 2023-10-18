@@ -10,10 +10,9 @@ const Address = () => {
   const [displayTextArea,setDisplayTextArea]=useState(false);
   const [addressData,setAddressData]=useState('')
   const {postAddressData,
-    addressDataArr:{address},
+    addressDataArr,
     fetchData,
     setChosenAddress,
-    chosenAddress,
     removeAddressData
   }=useContext(AddressContext)
 
@@ -27,7 +26,7 @@ const Address = () => {
     if (event.target.checked) {
       
       setSelectedAddressId(addressId);
-      const checkoutAddress=address.find(addr=>addr._id===addressId);
+      const checkoutAddress=addressDataArr?.address?.find(addr=>addr._id===addressId);
       console.log(checkoutAddress);
       setChosenAddress(checkoutAddress);
 
@@ -38,6 +37,7 @@ const Address = () => {
 
   const addAddressToList=async()=>{
     await postAddressData(addressData);
+    console.log(addressDataArr);
     await fetchData();
     setAddressData('');
   }
@@ -53,11 +53,11 @@ const Address = () => {
     >
       <h3>Choose your Address</h3>
       {
-        address?
-        address.length>0?
+        addressDataArr?.address?
+        addressDataArr.address.length>0?
         <ul>
           {
-            address.map(addr=>
+            addressDataArr?.address?.map(addr=>
             <li key={addr._id}>
               <input
               type="checkbox"

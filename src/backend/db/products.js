@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "84701cb7-a21a-4623-ba7f-3efc7ab62a75",
     title: "You Can WIN",
     author: "Shiv Khera",
     image:"https://5.imimg.com/data5/SELLER/Default/2020/10/ZB/JR/SC/113288716/11-06-2020-jpg.jpg",
@@ -16,7 +16,7 @@ export const products = [
     categoryName: "non-fiction",
   },
   {
-    _id: uuid(),
+    _id: "f7a62587-8fe4-4449-8723-20ad8d2d570f",
     title: "Think and Grow Rich",
     author: "Napoleon Hill",
     image:"https://pollycastor.com/wp-content/uploads/2020/03/IMG_2429.jpg",
@@ -25,7 +25,7 @@ export const products = [
     categoryName: "non-fiction",
   },
   {
-    _id: uuid(),
+    _id: "595653aa-8c53-4e41-bd18-d4f1c083c479",
     title: "House of Leaves",
     author: "Mark Z. Danielewski",
     image:"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1403889034i/24800.jpg",
@@ -35,7 +35,7 @@ export const products = [
   },
  
   {
-    _id: uuid(),
+    _id: "3d1c053f-8f73-4b71-a5c9-552ddbf907e3",
     title: "Murder on the Orient Express",
     author: "Agatha Christie",
     image:"https://m.media-amazon.com/images/I/81SoIAzWbnL._AC_UF1000,1000_QL80_.jpg",
@@ -44,7 +44,8 @@ export const products = [
     categoryName: "mystery",
   },
   {
-    _id: uuid(),
+    _id: 
+    "d97a7842-afd7-4074-b8d0-0db22d123f52",
     title: "Grimms' Fairy Tales",
     author: "Jacob Grimm",
     image:"https://images-cdn.ubuy.co.in/63953075ad04f72c4343e802-an-illustrated-treasury-of-grimm-s-fairy.jpg",
@@ -53,7 +54,7 @@ export const products = [
     categoryName: "fairy tales",
   },
   {
-    _id: uuid(),
+    _id: "b42dffd3-5d71-420a-9ba1-6d6fc1c26a16",
     title: "Nineten Eighty-four",
     author: "George Orwell",
     image:"https://m.media-amazon.com/images/I/41wBPTEJ5gL.jpg",
@@ -62,7 +63,7 @@ export const products = [
     categoryName: "fiction",
   },
   {
-    _id: uuid(),
+    _id: "82794007-5fc1-4386-a8d8-4a3ed9b9254f",
     title: "Gone Girl",
     author: "Gillian Flynn",
     image:"https://m.media-amazon.com/images/I/71+khXHbe5L._AC_UF1000,1000_QL80_.jpg",
@@ -71,7 +72,7 @@ export const products = [
     categoryName: "mystery",
   },
   {
-    _id: uuid(),
+    _id: "838d11fa-c0a5-4352-a726-380764a880fa",
     title: "Jerome K Jerome Omnibus",
     author: "Jerome Klapka Jerome",
     image:"https://m.media-amazon.com/images/I/71LCYluJhLL._AC_UF1000,1000_QL80_.jpg",
@@ -80,7 +81,7 @@ export const products = [
     categoryName: "humour",
   },
   {
-    _id: uuid(),
+    _id: "88f25afa-2c8e-4bd5-b624-c7aa1304a87a",
     title: "The Rise and Fall of the Third Reich",
     author: "William L Shirer",
     image:"https://i.ytimg.com/vi/R8HClaxGUSY/sddefault.jpg",
@@ -89,7 +90,7 @@ export const products = [
     categoryName: "non-fiction",
   },
   {
-    _id: uuid(),
+    _id: "5fcb7ddc-5d34-4fac-b799-2f03729507d3",
     title: "Alice in Wonderland",
     author: "Lewis Caroll",
     image:"https://i.etsystatic.com/6908127/r/il/e02ee5/573900593/il_570xN.573900593_11xr.jpg",
@@ -98,7 +99,7 @@ export const products = [
     categoryName: "fairy tales",
   },
   {
-    _id: uuid(),
+    _id: "a2b375b3-e618-4ba7-92b7-eb831fc623cd",
     title: "Atomic Habits",
     author: "James Clear",
     image:"https://images.meesho.com/images/products/181308553/hxby6_512.webp",
@@ -107,7 +108,7 @@ export const products = [
     categoryName: "non-fiction",
   },
   {
-    _id: uuid(),
+    _id:"d154ebe2-d223-4f29-bf7f-adf318008d2c",
     title: "Gulliver's Travels",
     author: "Jonathan Swift",
     image:"https://m.media-amazon.com/images/I/61RrjcUgL9L.jpg",
@@ -116,7 +117,7 @@ export const products = [
     categoryName: "fiction",
   },
   {
-    _id: uuid(),
+    _id: "67ba12a4-e52b-44b7-aa80-00899d5f936b",
     title: "Sherlock Holmes Omnibus",
     author: "Sir Arthur Conan Doyle",
     image:"https://rukminim2.flixcart.com/image/850/1000/k3uhhu80/book/4/2/8/the-sherlock-holmes-omnibus-56-short-stories-and-4-novels-original-imafmvwp7nwfhcxs.jpeg?q=20",
@@ -125,7 +126,7 @@ export const products = [
     categoryName: "mystery",
   },
   {
-    _id: uuid(),
+    _id: "23d01ec2-14a6-4ca5-99d6-e8c70769e7d0",
     title: "A Tale of Two Cities",
     author: "Charles Dickens",
     image:"https://images.squarespace-cdn.com/content/v1/5dc21d198c1cfd4ef901f025/2488a60f-5f9a-460b-85e1-9235954325af/tale-of-two-cities-book-cover.jpeg",
@@ -134,7 +135,7 @@ export const products = [
     categoryName: "fiction",
   },
   {
-    _id: uuid(),
+    _id: "a7b31f14-a593-4814-a15f-2d6997aaa0c4",
     title: "Born a Crime",
     author: "Trevor Noah",
     image:"https://images.meesho.com/images/products/260187281/jtvdf_512.webp",
@@ -143,7 +144,7 @@ export const products = [
     categoryName: "humour",
   },
   {
-    _id: uuid(),
+    _id:"70b2406c-3307-4379-83c5-1cb8980da555",
     title: "Animal Farm",
     author: "George Orwell",
     image:"https://m.media-amazon.com/images/I/91LUbAcpACL._AC_UF1000,1000_QL80_.jpg",
@@ -152,7 +153,7 @@ export const products = [
     categoryName: "fiction",
   },
   {
-    _id: uuid(),
+    _id: "e20ab22d-b0fa-4dff-b20d-ab176c30aa78",
     title: "Aesop's Fables",
     author: "Aesop",
     image:"https://m.media-amazon.com/images/I/61voTsTR8TL.jpg",
@@ -161,7 +162,7 @@ export const products = [
     categoryName: "fairy tales",
   },
   {
-    _id: uuid(),
+    _id: "377c7dc4-c174-4e3e-84b8-a67a0162f523",
     title: "Dark Matter",
     author: "Blake Crouch",
     image:"https://blakecrouch.com/wp-content/uploads/2022/03/BlakeCrouch-DarkMatter-3Dhardcover.png",
@@ -170,7 +171,7 @@ export const products = [
     categoryName: "mystery",
   },
   {
-    _id: uuid(),
+    _id: "03c9a4d3-409c-4c06-9164-10441c15da92",
     title: "A Short History of Nearly Everything",
     author: "Bill Bryson",
     image:"https://cdn.kobo.com/book-images/80c31cad-62cd-4e17-bc44-79860a0c4c5d/1200/1200/False/a-really-short-history-of-nearly-everything-1.jpg",
@@ -179,7 +180,7 @@ export const products = [
     categoryName: "non-fiction",
   },
   {
-    _id: uuid(),
+    _id: "263d9274-d7c2-4e4f-877d-4c9f6abdaaf7",
     title: "A Confederacy of Dunces",
     author: "John Kennedy",
     image:"https://m.media-amazon.com/images/I/81vVYM9dlcL._AC_UF1000,1000_QL80_.jpg",

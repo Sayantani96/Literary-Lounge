@@ -26,34 +26,15 @@ const Auth = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-     // Make POST request to server
-      await signUp(formData);
-    //  const response=await fetch('/api/auth/signup', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-formType': 'application/json'
-    //     },
-    //     body: JSON.stringify(formData)
-    //   })
-    //     .then(response =>response.json())
-        
-    //     .catch(error => {
-    //       // Handle any error that occurred during the request
-    //       console.error('Error submitting form:', error);
-    //     });
-    //     if(response){
-    //       console.log(response);
-    //         localStorage.setItem("token",response.encodedToken);
-    //     }else{
-    //         alert("Response Not Found");
-    //     }
-        navigate('/products');
+    await signUp(formData);
+    navigate('/products');
   };
 
   return (
     <FormBackground>
         <div className="auth-section">
       <FormModal>
+      <h1>Sign Up</h1>
     <form onSubmit={handleSubmit}>
         <FormInput
           formType="text"

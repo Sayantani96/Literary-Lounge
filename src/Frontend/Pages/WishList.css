@@ -20,12 +20,19 @@
 
 .wishlist-prod h5{
     width:100px;
+    margin-top:75px;
 }
 .wishlist-prod p{
     width:200px;
-    margin-top:30px;
+    margin-top:75px;
 }
 
 .wishlist-operations{
-    margin-top:31px;
+    margin-top:80px;
+}
+
+.wishlist-book-img{
+    height:200px;
+    width:200px;
+    padding-bottom:1.07rem;
 }

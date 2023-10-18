@@ -39,6 +39,7 @@ const Wishlist = () => {
         wishlist?
         wishlist.length>0?
         wishlist.map(data=><div key={data.id} className="wishlist-prod">
+        <img src={data.image} alt="book-img" className='wishlist-book-img'/>
         <h5>{data.title}</h5>
         <p>{data.categoryName}</p>
         <p>Price: {data.price}</p>

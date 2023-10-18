@@ -28,14 +28,18 @@ const FeaturedCategories = () => {
                       <div>
                         <img src={category.image} alt="category-img" className="category-img"/>
                       </div>
+                      <div className="category-name">
                         {
                             category.categoryName
                         }
+                      </div>
                     <div>
                     {/* <Link to={'/categories/'+category._id}>Visit Category</Link> */}
+                    <div className="link-btn">
                     <LinkButton onClickOperation={()=>handleCategoryVisit(category.categoryName)}>
                       Visit Category
                     </LinkButton>
+                    </div>
                     </div>
                    
                     </CategoryCard>)

@@ -38,7 +38,7 @@ const Header = () => {
           </NavLink>
         <div className="search-container">
           <FormInput
-      formPlaceholder="Search Products"
+      formPlaceholder="Search Books"
       formChange={handleSearchText}
       formKeyPress={(e)=>e.which===13 && navigate('/products')}
       />
@@ -46,7 +46,7 @@ const Header = () => {
           <div className={hamburgerOpen? "menu-container expanded": "menu-container"}>
           <ul>
               <li>
-                  <NavLink to="/products" className="nav-item">Products</NavLink>
+                  <NavLink to="/products" className="nav-item">Books</NavLink>
               </li>
               <li>
                   <NavLink to="/wishlist" className="nav-item">Wishlist</NavLink>

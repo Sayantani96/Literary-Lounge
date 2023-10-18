@@ -12,7 +12,6 @@ const FormInput = ({
   const [handleShowHide,setHandleShowHide]=useState(true);
   const handleChange=()=>{
     setHandleShowHide(!handleShowHide)
-    console.log(handleShowHide);
   }
   return (
     <div>

@@ -17,8 +17,6 @@ const FilterLayout = () => {
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
         const categoryName=event.target.value;
-        setPriceRange('');
-        setRating(1);
         sortProductsByCategories(categoryName);
       };
       const handlePriceRangeChange = (event) => {
@@ -33,8 +31,6 @@ const FilterLayout = () => {
       const handleRatingChange = (event) => {
         setRating(Number(event.target.value));
         const ratingValue=event.target.value;
-        setPriceRange('');
-        setSelectedCategory('all');
         slideFilterByRating(ratingValue);
       };
       const handleClearFilter=()=>{

@@ -51,7 +51,6 @@ export const WishlistContextProvider=({children})=>{
       }).then(res=>res.json())
       .catch(error=>console.log(error))
       if(response){
-        console.log(response);
         dispatch({type:'SET_WISHLIST_DATA', payload: response})
       }
       

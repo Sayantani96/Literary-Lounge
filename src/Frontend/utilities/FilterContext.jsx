@@ -36,7 +36,7 @@ export const FilterContextProvider=({children})=>{
     const sortProductsByCategories=(categoryName)=>{
         dispatch({type:'SORT_BY_CATEGORY',payload:{
             ...state,
-            filteredData:productData.products,
+            filteredData:state.filteredData.length>0?state.filteredData:productData.products,
             categoryName:categoryName
         }})
     }
@@ -51,7 +51,7 @@ export const FilterContextProvider=({children})=>{
     const slideFilterByRating=(ratingValue)=>{
         dispatch({type:'SORT_BY_RATING',payload:{
             ...state,
-            filteredData:productData.products,
+            filteredData:state.filteredData.length>0?state.filteredData:productData.products,
             rating:ratingValue
         }})
     }

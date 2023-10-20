@@ -21,7 +21,9 @@ const WishListReducer=(wishListState,action)=>{
                     wishListData:[]
             }
             }
-            return "Product Already Present"
+            return {
+                ...wishListState
+            }
 
         case 'REMOVE_ITEM':
             return {

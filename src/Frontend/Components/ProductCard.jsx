@@ -81,9 +81,12 @@ const ProductCard = ({
             <h2>
                 {title}
             </h2>
-            <p>{author}</p>
-            <p>{category}</p>
-            <p>{price}/-</p>
+            <div className="book-details">
+            <div>{author}</div>
+            <div>{category}</div>
+            <div>{price}/-</div>
+            </div>
+           
         </div>
             
             <div className="btn-section">

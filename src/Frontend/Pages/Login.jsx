@@ -1,19 +1,17 @@
 import React,{useContext, useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import FormInput from '../Components/FormInput/FormInput';
 import './Login.css'
 import Button from '../Components/Button';
 import FormBackground from '../Components/FormBackground';
 import FormModal from '../Components/FormModal';
 import { AuthContext } from '../utilities/AuthContext';
-import AlertBox from '../Components/AlertBox/AlertBox';
-// import { Eye, EyeOff } from "react-icons/fa";
+
 const Login = () => {
   const [loginFormData, setloginFormData] = useState({
     email: '',
     password: '',
   });
-  const navigate=useNavigate();
   const handleChange = (e) => {
     setloginFormData({ ...loginFormData, [e.target.name]: e.target.value });
   };
@@ -21,7 +19,6 @@ const Login = () => {
   const handleSubmit =(event) => {
     event.preventDefault();
     logIn(loginFormData);
-    navigate('/products')
   };
 
   return (

@@ -6,14 +6,20 @@ const WishListReducer=(wishListState,action)=>{
                 wishListData: action.payload
             }
         case 'ADD_TO_WISHLIST':
-            const isProductPresent=wishListState.wishListData.wishlist.find(data=>data.id===action.payload.id)
+            const isProductPresent=wishListState?.wishListData?.wishlist?.find(data=>data.id===action.payload.id)
             if(!isProductPresent){
+                if(wishListState.wishListData.wishlist)
                 return {
                     ...wishListState,
                     wishListData:{
                         wishlist:[...wishListState.wishListData.wishlist,{...action.payload}]
                     }
                 }
+                else
+                return {
+                    ...wishListState,
+                    wishListData:[]
+            }
             }
             return "Product Already Present"
 

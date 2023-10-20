@@ -5,7 +5,8 @@ export const CartContext=createContext();
 
 const initialState={
   cartData:[],
-  totalPrice:0
+  totalPrice:0,
+  cartTotal:0
 }
 
 export const CartContextProvider=({children})=>{
@@ -57,13 +58,12 @@ export const CartContextProvider=({children})=>{
             setTimeout(() => setAlertForCart(false), 2000);
           }
         } catch (error) {
-          // Handle errors
+
           console.error(error);
         }
         
     }
     const removeItem=async (value)=>{
-      // console.log(value);
       
       const response= await fetch(`/api/user/cart/${value._id}`,{
         method:'DELETE',
@@ -92,6 +92,8 @@ export const CartContextProvider=({children})=>{
         })
       }).then(response=>response.json())
       .catch(error=>console.log(error))
+      setAlertForCart(true);
+      setTimeout(() => setAlertForCart(false), 2000);
        dispatch({type:'INCREMENT_ITEM_QTY',payload:value})
     }
     const decrement= async (value)=>{
@@ -119,7 +121,6 @@ export const CartContextProvider=({children})=>{
       }
       return false;
     }
-    
 
     const value={
       state,

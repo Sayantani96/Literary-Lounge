@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
-
+import { createContext, useContext, useState } from "react";
+import { CartContext } from "./CartContext";
+import {useNavigate} from 'react-router-dom'
 
 
 export const AuthContext=createContext();
@@ -11,8 +12,7 @@ export const AuthContextProvider=({children})=>{
     const signupData=JSON.parse(localStorage.getItem("signedup-user"));
     const [token,setToken]=useState(signupData?.token);
     const [userData,setUserData]=useState(signupData?.userDetails);
-
-    
+    const navigate=useNavigate();
 
     //Handling signup data
     const signUp=async (credentials)=>{
@@ -27,12 +27,15 @@ export const AuthContextProvider=({children})=>{
             .then(response =>response.json())
             
             .catch(error => {
-              // Handle any error that occurred during the request
               console.error('Error submitting form:', error);
             });
-            console.log(response);
+            
             if(response){
-             localStorage.setItem(
+              if(response.errors){
+                alert(response.errors[0]);
+              }
+          else{
+            localStorage.setItem(
               "signedup-user",
               JSON.stringify(
                 {
@@ -44,6 +47,9 @@ export const AuthContextProvider=({children})=>{
              )
              setToken(response.encodedToken);
               setUserData(response.createdUser);
+            navigate('/products')
+          }
+             
             }else{
                 alert("Response Not Found");
             }
@@ -82,8 +88,7 @@ export const AuthContextProvider=({children})=>{
                  );
                 setToken(response.encodedToken);
                 setUserData(response.foundUser);
-                console.log(token,userData);
-
+                navigate('/products')
               }
              
              
@@ -96,7 +101,7 @@ export const AuthContextProvider=({children})=>{
       console.log("Entered in signout");
         localStorage.removeItem("signedup-user");
         setToken(null);
-        setUserData(null);
+        setUserData(null);   
     }
 
     const value={signUp,logIn,signOut,token,userData};

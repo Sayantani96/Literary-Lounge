@@ -8,6 +8,7 @@ import Logo from '../Logo';
 import { AuthContext } from '../../utilities/AuthContext';
 import FormInput from '../FormInput/FormInput'
 import { FilterContext } from '../../utilities/FilterContext';
+import Badge from '../Badge/Badge';
 
 const Header = () => {
     const [hamburgerOpen,setHamburgerOpen]=useState(false);
@@ -55,9 +56,11 @@ const Header = () => {
           <ul className='corner-menu'>
               <li>
                   <NavLink to="/cart" className="nav-item">
-                      <HiShoppingCart size={45} color="#003366" />
-                  </NavLink>
+                   <HiShoppingCart size={45} color="#003366" />
+                      <Badge/>
+                  </NavLink>   
               </li>
+              
               <li>
                 <NavLink to="/login" className="nav-item">
                   <CgProfile size={45} color="#003366"/>

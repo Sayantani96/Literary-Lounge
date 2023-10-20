@@ -81,7 +81,7 @@ const Cart = () => {
       {   
         cartData.cart==undefined?
           <div>
-          There's a problem in cart
+          Cart is empty
         </div>
        :
         cartData.cart.length>0?

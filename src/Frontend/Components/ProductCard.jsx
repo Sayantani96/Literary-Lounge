@@ -19,8 +19,19 @@ const ProductCard = ({
     image
 }) => {
 
-    const {addToCart,fetchData,isPresentInCart,increment,showAlertForCart,dispatch}=useContext(CartContext);
-    const {addToWishlist,fetchWishlistData,showAlertForWishlist}=useContext(WishlistContext);
+    const {
+        state,
+        addToCart,
+        fetchData,
+        isPresentInCart,
+        increment,
+        showAlertForCart,
+        dispatch}=useContext(CartContext);
+    const {
+        wishListState,
+        addToWishlist,
+        fetchWishlistData,
+        showAlertForWishlist}=useContext(WishlistContext);
     const {token}=useContext(AuthContext);
     const {getProductById}=useContext(ProductContext);
     const [addToCartClicked, setAddToCartClicked] = useState(false);
@@ -42,6 +53,8 @@ const ProductCard = ({
     }
         
     }
+
+
    
     const addProductToWishlist=async(value)=>{
     if(token){
@@ -81,7 +94,13 @@ const ProductCard = ({
                 
             }
             {
-                showAlertForCart && <AlertBox>"Added to Cart!"</AlertBox>
+                showAlertForCart?
+                state.cartData.cart?
+                state.cartData.cart.length>0?
+                 <AlertBox>Added to Cart!</AlertBox>:
+                 <AlertBox>Error in Cart!</AlertBox>:
+                 <AlertBox>Can't Add to Cart</AlertBox>:
+                 ''
             }
             {
                 addToWishlistClicked?
@@ -92,7 +111,13 @@ const ProductCard = ({
             </div>
            
             {
-                showAlertForWishlist && <AlertBox>Added to Wishlist!</AlertBox>
+                showAlertForWishlist?
+                wishListState.wishListData.wishlist?
+                wishListState.wishListData.wishlist.length>0?
+                <AlertBox>Added to Wishlist!</AlertBox>:
+                <AlertBox>Error in Wishlist!</AlertBox>:
+                <AlertBox>Can't Add to Wishlist</AlertBox>:
+                ''
             }
            <LinkButton onClickOperation={visitBook}>Visit Item</LinkButton>
            

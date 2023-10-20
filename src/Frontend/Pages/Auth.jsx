@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import FormBackground from '../Components/FormBackground';
 import FormInput from '../Components/FormInput/FormInput';
 import Button from '../Components/Button';
@@ -17,7 +17,6 @@ const Auth = () => {
     lastName: '',
   });
 
-  const navigate=useNavigate();
 
   const handleChange = (e) => {
     console.log(e);
@@ -27,7 +26,6 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signUp(formData);
-    navigate('/products');
   };
 
   return (

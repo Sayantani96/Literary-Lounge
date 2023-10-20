@@ -1,0 +1,18 @@
+.cart-badge{
+    height:30px;
+    width:30px;
+    border-radius:50%;
+    background-color:#00AA55;
+    color:#F5F5F5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.1rem;
+    position:relative;
+    bottom:80%;
+    left: 25px;
+}
+
+.badge-hide{
+    display:none;
+}

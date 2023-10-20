@@ -7,16 +7,22 @@ const cartReducer=(state,action)=>{
             }
         case 'ADD_TO_CART':
             console.log(state);
-            const isProductPresent=state.cartData.cart.find(data=>data.id===action.payload.id)
+            const isProductPresent=state?.cartData?.cart?.find(data=>data.id===action.payload.id)
             if(!isProductPresent){
+                if(state.cartData.cart)
                 return {
                     ...state,
                     cartData:{
                         cart:[...state.cartData.cart,{...action.payload,qty:1}]
                     }
                 }
+                else
+                return {
+                    ...state,
+                    cartData:[]
             }
-            const updatedProducts=state.cartData.cart.map(data=>{
+            }
+            const updatedProducts=state?.cartData?.cart?.map(data=>{
                 if(data.id===isProductPresent.id)
                     return {
                         ...data,
@@ -34,7 +40,7 @@ const cartReducer=(state,action)=>{
             }
 
         case 'INCREMENT_ITEM_QTY':
-            const incrementProducts=state.cartData.cart.map(data=>{
+            const incrementProducts=state?.cartData?.cart?.map(data=>{
                 if(data.id===action.payload.id)
                     return {
                         ...data,
@@ -53,7 +59,7 @@ const cartReducer=(state,action)=>{
             }
         
             case 'DECREMENT_ITEM_QTY':
-                const decrementProducts=state.cartData.cart.map(data=>{
+                const decrementProducts=state?.cartData?.cart?.map(data=>{
                     if(data.id===action.payload.id)
                     return {
                         ...data,
@@ -75,13 +81,13 @@ const cartReducer=(state,action)=>{
             return {
                 ...state,
                 cartData:  {
-                    cart: state.cartData.cart.filter(data=>data!==action.payload)
+                    cart: state?.cartData?.cart?.filter(data=>data!==action.payload)
                 }
             }
 
         case 'TOTAL_PRICE':
             if(state.cartData.cart){
-                const totalPrice=state.cartData.cart.reduce((accumulator,current)=>{
+                const totalPrice=state?.cartData?.cart?.reduce((accumulator,current)=>{
                     accumulator+=(current.price*current.qty)
                     return accumulator
                 },0)
@@ -94,7 +100,17 @@ const cartReducer=(state,action)=>{
            return {
             ...state
            }
-            
+
+           case 'CART_TOTAL':
+                const cartTotal=state?.cartData?.cart?.reduce((accumulator,current)=>{
+                    accumulator+=current.qty
+                    return accumulator
+                },0)
+                console.log(cartTotal);
+                return {
+                    ...state,
+                    cartTotal:cartTotal
+                }
 
         default:
             return state;

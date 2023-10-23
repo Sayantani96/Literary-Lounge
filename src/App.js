@@ -1,5 +1,4 @@
 import{Routes,Route} from 'react-router-dom'
-import "./App.css";
 import ProductListing from "./Frontend/Pages/Products";
 import Cart from '../src/Frontend/Pages/Cart'
 import Home from '../src/Frontend/Pages/Home'
@@ -16,7 +15,7 @@ import Checkout from "./Frontend/Pages/Checkout";
 function App() {
   
   return (
-    <div className="App">
+    <>
       <Header/>
       <Routes>
        <Route path="/" element={<Home/>}/>
@@ -36,7 +35,7 @@ function App() {
         </ProtectedRoute>
         }/>
         <Route path="/categories/:id" element={<FeaturedCategory/>}/>
-        {/* <Route path="/*" element={<ErrorPage/>}/> */}
+        <Route path="/*" element={<Home/>}/>
         <Route path="/checkout" element={
       <ProtectedRoute>
         <Checkout/>
@@ -44,7 +43,7 @@ function App() {
         }/>
         
       </Routes>
-    </div>
+    </>
   );
 }
 

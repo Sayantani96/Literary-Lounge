@@ -6,7 +6,7 @@ import {AiFillGithub,AiOutlineTwitter,AiOutlineLinkedin} from 'react-icons/ai'
 
 const Footer = () => {
   return (
-    <div className="footer-section">
+      <div className="footer-section">
       <div>
       <Logo/>
         <p>Your ultimate partner to find every type of books</p>
@@ -48,6 +48,7 @@ const Footer = () => {
           08069490169
         </div>
     </div>
+    
   )
 }
 

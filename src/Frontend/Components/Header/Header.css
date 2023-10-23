@@ -29,7 +29,7 @@
     .hamburger-view{
         display:inline;
         position:fixed;
-        top:50px;
+        top:11px;
         left:80%;
         z-index:10;
     }

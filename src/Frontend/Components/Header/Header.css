@@ -14,7 +14,7 @@
     justify-content:space-between;
     background-color:#F5F5F5;
     border-radius:0 15px 0 15px;
-
+    height: 13vh;
 }
 
 .menu-container{
@@ -33,16 +33,19 @@
         left:80%;
         z-index:10;
     }
+    .search-container{
+        position: static !important;
+    }
     .menu-container.expanded{
         display:block;
         position: absolute;
-        top: 153px;
+        top: 0;
         left: 0;
         flex-direction: column;
         width: 100%;
-        height: calc(100vh - 77px);
-        background-color: white;
-        border-top: 1px solid black;
+        background-color: #8cc5a9;
+        border-bottom: 1px solid black;
+        text-align:center;
     }
     .menu-container{
         display:none;
@@ -92,5 +95,8 @@
 .search-container{
     display:flex;
     align-items:center;
+    position:relative;
+    right:400px;
+    bottom:38px;
 }
 

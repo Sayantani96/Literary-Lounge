@@ -1,6 +1,7 @@
 .hamburger{
     width:2rem;
     height:1.5rem;
+    margin-top:26px;
     display:flex;
     flex-flow: column nowrap;
     justify-content:space-around;

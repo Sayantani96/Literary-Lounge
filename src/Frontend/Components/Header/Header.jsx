@@ -38,14 +38,18 @@ const Header = () => {
               <Logo/>
           </NavLink>
           <div className={hamburgerOpen? "menu-container expanded": "menu-container"}>
-          <div className="search-container">
+        
+      
+          <ul>
+            <li>
+            <div className="search-container">
           <FormInput
       formPlaceholder="Search Books"
       formChange={handleSearchText}
       formKeyPress={(e)=>e.which===13 && navigate('/products')}
       />
       </div>
-          <ul>
+            </li>
               <li>
                   <NavLink to="/products" className="nav-item">Books</NavLink>
               </li>
@@ -67,9 +71,11 @@ const Header = () => {
                 </NavLink>
               </li>
               {
-                token && <NavLink to="/" className="nav-item" onClick={authHandler}>
+                token && <li>
+                <NavLink to="/" className="nav-item" onClick={authHandler}>
                     Logout
                 </NavLink>
+                </li>
               }
           </ul>
       </div>

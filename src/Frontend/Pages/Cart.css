@@ -68,7 +68,7 @@
     padding-bottom:1.07rem;
   }
 
-  @media (max-width:767px){
+  @media (max-width:912px){
     .total-price{
       padding:0 4rem 0 0;
     }

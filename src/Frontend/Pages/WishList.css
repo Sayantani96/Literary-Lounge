@@ -37,7 +37,7 @@
     padding-bottom:1.07rem;
 }
 
-@media (max-width:767px){
+@media (:767px){
     .wishlist-container{
         margin: 10rem 4rem;
     }

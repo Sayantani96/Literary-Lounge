@@ -10,7 +10,7 @@
 .product-desc{
     width: 35rem;
 }
-@media (max-width:767px){
+@media (max-width:912px){
    .about-products{
     position:static;
     margin: 37rem 0 0 8rem;

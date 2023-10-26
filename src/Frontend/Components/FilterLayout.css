@@ -29,7 +29,7 @@ input[type="range"]{
     color:#003366;
 }
 
-@media (max-width:767px){
+@media (max-width:912px){
     select{
         display:block;
         padding:1.2rem;

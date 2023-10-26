@@ -31,7 +31,7 @@
   font-size:1.35rem;
 }
 
-@media (max-width:767px){
+@media (max-width:912px){
   .link-btn{
     line-height:1.3;  
   }

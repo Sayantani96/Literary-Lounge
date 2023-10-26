@@ -25,7 +25,7 @@
     display:none;
 }
 
-@media (max-width:767px){
+@media (max-width:912px){
     .hamburger-view{
         display:inline;
         position:fixed;
@@ -43,9 +43,12 @@
         left: 0;
         flex-direction: column;
         width: 100%;
+        height:100vh;
         background-color: #8cc5a9;
         border-bottom: 1px solid black;
         text-align:center;
+        z-index:99999;
+        opacity:1;
     }
     .menu-container{
         display:none;

@@ -38,7 +38,14 @@ const Header = () => {
               <Logo/>
           </NavLink>
           <div className={hamburgerOpen? "menu-container expanded": "menu-container"}>
-        
+          {
+            hamburgerOpen && <div
+            className="hamburger-view"
+            onClick={()=>setHamburgerOpen(!hamburgerOpen)}
+        >
+                <Hamburger />
+            </div>
+          }
       
           <ul>
             <li>

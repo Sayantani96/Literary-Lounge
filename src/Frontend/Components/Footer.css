@@ -17,7 +17,7 @@
     flex-wrap:wrap;
 }
 
-@media (max-width:767px){
+@media (max-width:912px){
     .footer-section{
         padding:30px 20px 30px 15px;
     }

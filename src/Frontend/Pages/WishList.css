@@ -36,3 +36,9 @@
     width:200px;
     padding-bottom:1.07rem;
 }
+
+@media (max-width:767px){
+    .wishlist-container{
+        margin: 10rem 4rem;
+    }
+}

@@ -27,7 +27,7 @@ const ProductListing = () => {
   <div className="product-body">
     {
       token ?
-       <h3>
+       <h3 className='welcome-text'>
         Welcome {
        JSON.parse(localStorage.getItem("signedup-user")).userDetails.firstName
         }

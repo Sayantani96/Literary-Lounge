@@ -40,9 +40,10 @@
 
   .total-price{
     text-align: right;
-    position:relative;
+    padding-right:18rem;
+    /* position:relative;
     bottom:15rem;
-    right: 8rem;
+    right: 8rem; */
     color:#003366;
     font-weight:700;
     font-size:1.5rem;
@@ -50,9 +51,10 @@
 
   .checkout-btn{
     text-align: right;
-    position:relative;
+    padding-right:18rem;
+    /* position:relative;
     bottom:11.5rem;
-    right:3rem;   
+    right:3rem;    */
   }
 
   div,p{
@@ -64,4 +66,16 @@
     height:200px;
     width:200px;
     padding-bottom:1.07rem;
+  }
+
+  @media (max-width:767px){
+    .total-price{
+      padding:0 4rem 0 0;
+    }
+    .checkout-btn{
+      padding: 0 4rem 8rem 0;
+    }
+    .cart-container{
+      margin: 10rem 2rem;
+    }
   }

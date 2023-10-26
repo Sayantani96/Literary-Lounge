@@ -12,6 +12,11 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin:50px;
   max-width: 18rem;
+  text-align:center;
+}
+
+.welcome-text{
+  text-align:center;
 }
 
 .main-section{
@@ -61,7 +66,8 @@
   .main-section{
     display:block;
   }
-  /* .filter-section{
-    text-align:center;
-  } */
+  .welcome-text{
+    position:relative;
+    top:-91px;
+  }
 }

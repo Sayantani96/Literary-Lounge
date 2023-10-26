@@ -10,8 +10,8 @@
     width: 35rem;
 }
 @media (max-width:767px){
-    .product-desc{
+    /* .product-desc{
         margin-left:17rem;
-    }
+    } */
 }
 

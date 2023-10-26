@@ -37,7 +37,7 @@
     .form-section{
         min-width:18rem;
         justify-content:flex-start;
-        padding-right:8px;
+        padding:0 14px;
     }
     .form-section p{
         font-size:10px;

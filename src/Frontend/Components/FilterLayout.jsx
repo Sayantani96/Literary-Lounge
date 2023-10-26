@@ -43,7 +43,7 @@ const FilterLayout = () => {
     <div className="filter-section">
         <h3>Categories</h3>
         <select value={selectedCategory} onChange={handleCategoryChange} className='category-select'>
-        <option value="">Select</option>
+        <option value="">Select Category</option>
           {category.map((category) => (
             <option key={category._id} value={category.categoryName}>
               {category.categoryName}
@@ -52,7 +52,7 @@ const FilterLayout = () => {
         </select>
         <h3>Price Range:</h3>
         <select value={priceRange} onChange={handlePriceRangeChange}>
-          <option value="">Select</option>
+          <option value="">Select Price Range</option>
           <option value="low-to-high">Low to High</option>
           <option value="high-to-low">High to Low</option>
         </select>

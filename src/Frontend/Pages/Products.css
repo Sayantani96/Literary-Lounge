@@ -56,3 +56,12 @@
 .book-details div{
   margin-right:2rem;
 }
+
+@media (max-width:767px){
+  .main-section{
+    display:block;
+  }
+  .filter-section{
+    text-align:center;
+  }
+}

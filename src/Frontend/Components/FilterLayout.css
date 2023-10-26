@@ -28,3 +28,23 @@ input[type="range"]{
     font-weight:600;
     color:#003366;
 }
+
+@media (max-width:767px){
+    select{
+        display:block;
+        padding:1.2rem;
+        width:2rem;
+        height:1rem;
+    }
+    input[type="range"]{
+        display:block;
+        padding:.7rem;
+        width:2rem;
+    }
+    .filter-section h3{
+        display:none;
+    }
+    .rating-text{
+        display:none;
+    }
+}

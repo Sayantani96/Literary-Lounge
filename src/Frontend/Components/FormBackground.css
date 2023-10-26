@@ -7,3 +7,11 @@
     align-items: center;
     padding-bottom:25em;
 }
+
+@media (max-width:767px){
+    .auth-bg{
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom:0;
+    }
+}

@@ -48,7 +48,7 @@ const Login = () => {
      </form>
     </div>
     <p className="reg-nav">
-    Not Registered?<Link to="/auth"> Sign Up Now</Link>
+    <span>Not Registered?</span><Link to="/auth"> Sign Up Now</Link>
     </p>
     </FormModal>
     </div>

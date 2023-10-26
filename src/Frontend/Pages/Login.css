@@ -10,3 +10,15 @@
 .reg-nav{
     margin-top:5rem;
 }
+
+@media (max-width:767px){
+
+    .reg-nav{
+        margin-top:2rem;
+        padding:0 15px;
+        font-size:10px;
+    }
+    .auth-section{
+        margin-top:9rem;
+    }
+}

@@ -9,10 +9,16 @@
     align-items:center;
     font-size:1.1rem;
     position:relative;
-    bottom:80%;
+    top:-59px;
     left: 25px;
 }
 
 .badge-hide{
     display:none;
+}
+
+@media (max-width:767px){
+    .cart-badge{
+        left:9.7rem;
+    }
 }

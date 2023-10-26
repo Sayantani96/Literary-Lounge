@@ -69,7 +69,7 @@ const Carousel = ({slides,infinite}) => {
     }
 
   return (
-    <div>
+    <div className='carousel-section'>
         <div className="carousel-container">
             <div className='prev'onClick={prevClickHandler}>❰</div>
             <div className='display-frame'>

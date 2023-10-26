@@ -22,7 +22,7 @@ const Home = () => {
   return (
    <>
    <div className="hero-section">
-    <section>
+    <section className="text-section">
       <h1 className='hero-heading'>
         Immerse Yourself in the World of Words
       </h1>
@@ -37,6 +37,11 @@ const Home = () => {
     </section>
     <Carousel slides={carousel} infinite/>
    </div>
+   <div className="explore-btn">
+      <Button onClickOperation={goToProductPage}>
+        Start Exploring
+      </Button>
+      </div>
    <div className="featured-section">
     <FeaturedCategories/>
    </div>

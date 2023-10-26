@@ -68,3 +68,12 @@
     width: 100%;
     align-items: center;
 }
+@media (max-width:767px){
+    .carousel-section{
+        position:relative;
+        left:0;
+    }
+    .display-frame{
+        width:100%;
+    }
+}

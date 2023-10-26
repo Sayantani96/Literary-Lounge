@@ -10,8 +10,8 @@
 
 @media (max-width:767px){
     .auth-bg{
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: center;
+        align-items:center;
         padding-bottom:0;
     }
 }
